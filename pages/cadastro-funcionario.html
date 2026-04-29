@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Funcionário</title>
+</head>
+<link rel="stylesheet" href="../CSS/cadastros.css">
+<body>
+        <div class="container">
+        <div class="card">
+            <div class="robo"><img src="../IMG/robo-img.svg" alt="robo"></div>
+            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
+
+            <h3>Cadastro</h3>
+            <h4>Informe os dados do funcionário</h4>
+
+            <div class="card-inform">
+
+            <div class="input-grupo">
+                <h5>
+                    <img src="../IMG/user-img.svg" alt="user" class="icon-h5">
+                    Nome
+                </h5>
+                <input type="text" id="nome" placeholder="Insira seu nome">
+            </div>
+
+            <div class="input-grupo">
+                <h5>
+                    <img src="../IMG/data-img.svg" alt="data" class="icon-h5">
+                    Data de nascimento
+                </h5>
+                <input type="date" id="data" placeholder="Insira sua data de nascimento">
+            </div>
+
+            <div class="input-grupo">
+                <h5>
+                    <img src="../IMG/area-img.svg" alt="area" class="icon-h5">
+                    Área do Funcionário
+                </h5>
+                <select name="area" id="area">
+                    <option value="" disabled selected>Selecione a Área</option>
+                    <option value="adm">Administração</option>
+                    <option value="ti">T.I</option>
+                    <option value="producao">Produção</option>
+                </select>
+            </div>
+            
+            <a href="../HTML/criar-senha.html"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+
+            <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
+             <div class="passos">
+                <span class="ponto-ativo"></span>
+                <span class="ponto"></span>
+                <span class="ponto"></span>
+             </div>
+        </div>
+    </div>
+
+    <!-- JASA SCRIPT -->
+    <script>
+        document.querySelector('#btnContinuar').addEventListener('click', function() {
+            const nome = document.querySelector('#nome').value;
+            const data = document.querySelector('#data').value;
+            const area = document.querySelector('#area').value;
+
+            if (nome === '' || data === '' || area === '') {
+                alert("Ops! Preencha todos os campos para entrar.");
+            } 
+        })
+    </script>
+
+</body>
+</html>

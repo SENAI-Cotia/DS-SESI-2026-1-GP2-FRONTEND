@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Criar Senha</title>
+</head>
+<link rel="stylesheet" href="../CSS/cadastros.css">
+<body>
+        <div class="container">
+        <div class="card">
+            <div class="robo"><img src="../IMG/robo-img.svg" alt="robo"></div>
+            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
+
+            <h3>Cadastro</h3>
+            <h4>Crie sua senha</h4>
+
+            <div class="card-inform">
+
+            <div class="input-grupo">
+               <h5>Senha</h5>
+               <div class="senha-container">
+                    <input type="password" id="senha" placeholder="Crie uma senha">
+
+                    <span class="olhinho" onclick="toggleSenha()">
+                        <!-- Adicionando id="iconeOlho" -->
+                        <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                    </span>
+                </div>
+            </div>
+
+            <ul class="regras-senha">
+                <li id="regra-caracteres">Deve ter no mínimo 8 caracteres</ id="regra-">
+                <li id="regra-maiuscula">Pelo menos uma letra maiúscula</li>
+                <li id="regra-numero">Pelo menos um número</li>
+                <li id="regra-especial">Pelo menos um caracter especial (ex: !, @, #, &...)</li>
+            </ul>
+
+            <div class="input-grupo">
+                <h5>Confirme sua senha</h5>
+                <div class="senha-container">
+                <input type="password" id="senha-igual" placeholder="Confirme sua senha">
+
+                <span class="olhinho" onclick="toggleConfirmar()">
+                    <!-- Adicionando id="iconeOlho" -->
+                    <img src="../IMG/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
+                </span>
+                </div>
+            </div>
+            
+            <a href=""><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+
+            <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
+             <div class="passos">
+                <span class="ponto"></span>
+                <span class="ponto-ativo"></span>
+                <span class="ponto"></span>
+             </div>
+        </div>
+    </div>
+
+    <!-- JAVA SCRIPT -->
+    <script>
+        //JS - VISUALIZAÇÃO DA SENHA / OLHINHO
+        function toggleSenha() {
+            const inputSenha = document.querySelector('#senha');
+            const iconeOlho = document.querySelector('#iconeOlho');
+
+            if (inputSenha.type === 'password') {
+                inputSenha.type = 'text'; // mostra a senha
+             iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+            } else {
+                inputSenha.type = 'password'; // Esconde a senha
+             iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+            }
+        }
+
+           function toggleConfirmar() {
+            const inputSenha = document.querySelector('#senha-igual');
+            const iconeOlho = document.querySelector('#iconeVer');
+            
+
+            if (inputSenha.type === 'password') {
+                inputSenha.type = 'text'; // mostra a senha
+             iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+            } else {
+                inputSenha.type = 'password'; // Esconde a senha
+             iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+            }
+        }
+
+        // VALIDANDO EM TEMPO REAL DA CRIAÇÃO DA SENHA
+        inputSenha.addEventListener('input', () => {
+            const valor = inputSenha.value;
+
+            const regras = {
+                caracteres: valor.length >= 8,
+                maiuscula: /[A-Z]/.test(valor),
+                numero: /[0-9]/.test(valor),
+                especial: /[!@#$%&*(),.:{}|<>_-]/.test(valor)
+            };
+            
+            // ATUALIZA O VISUAL DAS REGRAS
+            atualizarVisualRegra('regra-caracteres', regras.caracteres);
+            atualizarVisualRegra('regra-maiuscula', regras.maiuscula);
+            atualizarVisualRegra('regra-numero', regras.numero);
+            atualizarVisualRegra('regra-especial', regras.especial);
+
+            // VÊ SE TODAS AS REGRAS FORAM ATINGIDAS
+            senhaValida = Object.values(regras).every(v => v === true);
+        });
+
+        // *ESTUDAR E PROCURAR ENTENDER ESSE PEDAÇO DEPOIS
+        function atualizarVisualRegra(id, ehValido) {
+    const elemento = document.getElementById(id);
+    if (ehValido) {
+        elemento.classList.add('valido');
+    } else {
+        elemento.classList.remove('valido');
+    }
+}
+
+// Lógica do Botão Continuar
+document.querySelector('#btnContinuar').addEventListener('click', function(event) {
+    const senha = inputSenha.value;
+    const confirma = inputConfirmar.value;
+
+    // 1. Verifica campos vazios
+    if (senha === '' || confirma === '') {
+        alert("Por favor, preencha os dois campos de senha.");
+        return;
+    }
+
+    // 2. Verifica se as regras de segurança foram atingidas
+    if (!senhaValida) {
+        alert("Sua senha ainda não atende a todos os requisitos de segurança.");
+        return;
+    }
+
+    // 3. Verifica se as senhas são iguais
+    if (senha !== confirma) {
+        alert("As senhas não coincidem. Verifique se digitou corretamente.");
+        return;
+    }
+
+    // Se passou por tudo:
+    alert("Senha cadastrada com sucesso!");
+    window.location.href = "#"; // Mude para o nome da sua próxima página
+});
+
+        document.querySelector('#btnContinuar').addEventListener('click', function() {
+            const senha = document.querySelector('#senha').value;
+            const senhaIgual = document.querySelector('#senha-igual').value;
+
+            if (senha === '' || senhaIgual === '' ) {
+                alert("Ops! Preencha todos os campos para entrar.");
+            }
+        })
+    </script>
+
+</body>
+</html>
