@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Helpyfast</title>
-
     <link rel="stylesheet" href="/style/cadastrarchamado.css">
-    
 </head>
 
 <body>
 
     <header>
         <div class="logo">
-            <img src="/IMG/logonavbar.png" alt="logo">
+            <img src="/IMG/logonavbar.png" alt="Helpy Fast">
         </div>
-
         <nav>
             <a href="#" class="nav-home">HOME</a>
             <a href="#">CHAMADOS</a>
@@ -24,10 +21,85 @@
         </nav>
     </header>
 
+    <div class="title-box">
+        <a href="/pages/home.html" class="back-arrow">
+            <img src="/svg/iconsetaleft.svg" alt="seta retornando">
+        </a>
+        <span>Novo chamado</span>
+    </div>
+
+    <div class="subtitle">Qual é o seu problema?</div>
+
     <div class="container">
-        <div class="title-box">
-            <img src="/svg/iconsetaleft.svg" class="seta-left"> <p class="title-principal">Novo Chamado</p>
+        <p class="label-section">Categoria do Problema</p>
+
+        <div class="categories">
+            <label class="card">
+                <input type="radio" name="categoria" value="ti" class="radio-card">
+                <img src="/svg/informatica-icon.svg" alt="">
+                <div class="card-text">
+                    <strong>Informática (TI)</strong>
+                    <span>Escritório</span>
+                </div>
+            </label>
+
+            <label class="card">
+                <input type="radio" name="categoria" value="producao" class="radio-card">
+                <img src="/svg/machine-icon.svg" alt="">
+                <div class="card-text">
+                    <strong>Produção</strong>
+                    <span>Oficinas</span>
+                </div>
+            </label>
+
+            <label class="card">
+                <input type="radio" name="categoria" value="adm" class="radio-card">
+                <img src="/svg/paper-icon.svg" alt="">
+                <div class="card-text">
+                    <strong>Administrativo</strong>
+                    <span>Salas</span>
+                </div>
+            </label>
         </div>
 
-        <h2>Qual é o seu problema?</h2>
+        <div class="form-grid">
+            <div class="form-group">
+                <p class="label-section">O que aconteceu?</p>
+                <textarea placeholder="Descreva brevemente o problema"></textarea>
+            </div>
+
+            <div class="form-group">
+                <p class="label-section">Anexar foto (Opcional)</p>
+                <label class="upload-box">
+                    <input type="file" style="display: none;">
+                    <img src="/svg/iconphoto.svg" alt="foto">
+                    <span>Adicionar foto</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="input-grupo">
+            <p class="localizacion">Adicione sua Localização </p>
+            <select name="area">
+                <option value="" disabled selected>Selecione sua Localização</option>
+                <option value="adm">Sala 1</option>
+                <option value="ti">Sala 2</option>
+                <option value="ti">Sala 3</option>
+                <option value="ti">Sala 4</option>
+                <option value="ti">Sala 5</option>
+                <option value="ti">Sala 6</option>
+                <option value="ti">Sala 7</option>
+                <option value="ti">Sala 8</option>
+                <option value="producao">Oficina de manutenção</option>
+                <option value="producao">Oficina de usinagem</option>
+                <option value="producao">Produção</option>
+            </select>
+        </div>
+
+
+        <button class="btn-chamado">Enviar chamado</button>
     </div>
+
+</body>
+
+</html>
