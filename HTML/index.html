@@ -55,10 +55,22 @@
 
         document.querySelector('#btnEntrar').addEventListener('click', function() {
             const email = document.querySelector('#email').value;
-            const senha = document.querySelector('#senha').value;
+            const senhaDigitada = document.querySelector('#senha').value;
 
-            if (email === '' || senha === '') {
+            // Busca a senha que foi salva na tela "Criar-Senha"
+            const senhaSalva = localStorage.getItem('senhaCadastrada');
+
+            if (email === '' || senhaDigitada === '') {
                 alert("Ops! Preencha todos os campos para entrar.");
+                return;
+            }
+
+            // Salvando a senha
+            if (senhaDigitada === senhaSalva) {
+                alert("Login realizado com sucesso. Bem-vindo(a)!");
+                window.location.href = "home.html"; // Vai para tela principal
+            } else {
+                alert("Senha incorreta! Tente novamente.");
             }
         })
      </script>

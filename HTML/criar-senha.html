@@ -48,7 +48,7 @@
                 </div>
             </div>
             
-            <a href="#"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+            <a href="../HTML/acesso.html"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
 
             <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
              <div class="passos">
@@ -61,7 +61,7 @@
 
     <!-- JAVA SCRIPT -->
     <script>
-            // INFROMAÇÕES GERAIS
+            // INFORMAÇÕES GERAIS
             const inputSenha = document.querySelector('#senha');
             const inputConfirmar = document.querySelector('#senha-igual');
             const iconeOlho = document.querySelector('#iconeOlho');
@@ -147,7 +147,14 @@ document.querySelector('#btnContinuar').addEventListener('click', function(event
 
     // Se passou por tudo:
     alert("Senha cadastrada com sucesso!");
-    window.location.href = "index.html"; // Mude para o nome da sua próxima página
+
+    // Salva a senha antes de mudar de página
+    localStorage.setItem('senhaCadastrada', senha);
+
+    window.location.href = "acesso.html"; // Mude para o nome da sua próxima página
+
+    // PROTÓTIPO DE BANCO DE DADOS
+    localStorage.setItem('senhaCadastrada', senha);
 });
 
     </script>
