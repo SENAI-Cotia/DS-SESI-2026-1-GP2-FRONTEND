@@ -30,7 +30,7 @@
             </div>
 
             <ul class="regras-senha">
-                <li id="regra-caracteres">Deve ter no mínimo 8 caracteres</ id="regra-">
+                <li id="regra-caracteres">Deve ter no mínimo 8 caracteres</li>
                 <li id="regra-maiuscula">Pelo menos uma letra maiúscula</li>
                 <li id="regra-numero">Pelo menos um número</li>
                 <li id="regra-especial">Pelo menos um caracter especial (ex: !, @, #, &...)</li>
@@ -65,6 +65,7 @@
         function toggleSenha() {
             const inputSenha = document.querySelector('#senha');
             const iconeOlho = document.querySelector('#iconeOlho');
+            let senhaValida = false; // Começa como falso
 
             if (inputSenha.type === 'password') {
                 inputSenha.type = 'text'; // mostra a senha
