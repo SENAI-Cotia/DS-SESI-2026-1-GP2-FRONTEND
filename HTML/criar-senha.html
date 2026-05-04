@@ -48,7 +48,7 @@
                 </div>
             </div>
             
-            <a href=""><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+            <a href="#"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
 
             <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
              <div class="passos">
@@ -61,33 +61,32 @@
 
     <!-- JAVA SCRIPT -->
     <script>
-        //JS - VISUALIZAÇÃO DA SENHA / OLHINHO
-        function toggleSenha() {
+            // INFROMAÇÕES GERAIS
             const inputSenha = document.querySelector('#senha');
+            const inputConfirmar = document.querySelector('#senha-igual');
             const iconeOlho = document.querySelector('#iconeOlho');
+            const iconeVer = document.querySelector('#iconeVer');
             let senhaValida = false; // Começa como falso
 
-            if (inputSenha.type === 'password') {
-                inputSenha.type = 'text'; // mostra a senha
-             iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
-            } else {
-                inputSenha.type = 'password'; // Esconde a senha
-             iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
-            }
+            //JS - VISUALIZAÇÃO DA SENHA / OLHINHO
+            function toggleSenha() {
+                if (inputSenha.type === 'password') {
+                    inputSenha.type = 'text'; // mostra a senha
+                    iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                } else {
+                    inputSenha.type = 'password'; // Esconde a senha
+                    iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                }
         }
 
            function toggleConfirmar() {
-            const inputSenha = document.querySelector('#senha-igual');
-            const iconeOlho = document.querySelector('#iconeVer');
-            
-
-            if (inputSenha.type === 'password') {
-                inputSenha.type = 'text'; // mostra a senha
-             iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
-            } else {
-                inputSenha.type = 'password'; // Esconde a senha
-             iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
-            }
+                if (inputConfirmar.type === 'password') {
+                    inputConfirmar.type = 'text'; // mostra a senha
+                    iconeVer.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                } else {
+                    inputConfirmar.type = 'password'; // Esconde a senha
+                    iconeVer.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                }
         }
 
         // VALIDANDO EM TEMPO REAL DA CRIAÇÃO DA SENHA
@@ -113,16 +112,18 @@
 
         // *ESTUDAR E PROCURAR ENTENDER ESSE PEDAÇO DEPOIS
         function atualizarVisualRegra(id, ehValido) {
-    const elemento = document.getElementById(id);
-    if (ehValido) {
-        elemento.classList.add('valido');
-    } else {
-        elemento.classList.remove('valido');
-    }
+            const elemento = document.getElementById(id);
+            if (ehValido) {
+                elemento.classList.add('valido');
+            } else {
+                elemento.classList.remove('valido');
+            }
 }
 
 // Lógica do Botão Continuar
 document.querySelector('#btnContinuar').addEventListener('click', function(event) {
+    event.preventDefault();
+
     const senha = inputSenha.value;
     const confirma = inputConfirmar.value;
 
@@ -146,17 +147,9 @@ document.querySelector('#btnContinuar').addEventListener('click', function(event
 
     // Se passou por tudo:
     alert("Senha cadastrada com sucesso!");
-    window.location.href = "#"; // Mude para o nome da sua próxima página
+    window.location.href = "index.html"; // Mude para o nome da sua próxima página
 });
 
-        document.querySelector('#btnContinuar').addEventListener('click', function() {
-            const senha = document.querySelector('#senha').value;
-            const senhaIgual = document.querySelector('#senha-igual').value;
-
-            if (senha === '' || senhaIgual === '' ) {
-                alert("Ops! Preencha todos os campos para entrar.");
-            }
-        })
     </script>
 
 </body>
