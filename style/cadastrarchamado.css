@@ -44,17 +44,17 @@ nav a {
 }
 
 .title-box {
-  width: 600px;
-  margin: 0 auto;
-  background: linear-gradient(90deg, #2E1A78, #4F46E5);
-  color: white;
-  padding: 12px 25px;
-  border-radius: 0 0 15px 15px;
-  font-weight: 600;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  position: relative;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #2E1A78, #4F46E5);
+    color: white;
+    padding: 18px;
+    border-radius: 20px 20px 0 0;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .back-arrow {
@@ -62,6 +62,7 @@ nav a {
   left: 25px;
   cursor: pointer;
 }
+
 
 .subtitle {
   text-align: center;
@@ -222,4 +223,21 @@ select {
   color: #444;
   margin-bottom: 10px;
   
+}
+
+.box-big {
+    padding: 40px;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    background-color: #F8F3FF;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card-container {
+    max-width: 900px;
+    margin: 50px auto; /* centraliza + afasta da navbar */
+    border-radius: 20px;
+    overflow: hidden; /* importante pro topo arredondado funcionar */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
