@@ -281,3 +281,32 @@ select {
     padding: 15px;
     margin: 5px;
 }
+
+/* ESQUECI MINHA SENHA */
+
+/* Animação de aparecer suavemente */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação de tremor (shake) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#aviso-senha-antiga {
+    display: none; /* Começa escondido */
+    color: #dc3545;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #fff5f5; /* Fundo leve para destacar */
+    border-radius: 8px;
+    border-left: 4px solid #dc3545;
+    animation: fadeIn 0.4s ease-out, shake 0.3s ease-in-out;
+}
+

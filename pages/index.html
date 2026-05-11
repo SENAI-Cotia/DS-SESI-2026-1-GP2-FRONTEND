@@ -17,7 +17,7 @@
 
             <div class="input-grupo">
                 <h5>E-mail</h5>
-                <input type="text" id="email" placeholder="Insira seu e-mail">
+                <input type="email" id="email" placeholder="Insira seu e-mail">
             </div>
 
             <div class="input-grupo">
@@ -32,18 +32,30 @@
                 </div>
             </div>
 
-            <a href="#"><button class="botao-entrar" id="btnEntrar">Entrar</button></a>
+            <div class="mais-opcoes">
+
+                <label class="lembre-mim">
+                    <input type="checkbox" id="check-lembrar"> <span>Lembre de mim</span>
+                </label>
+            <a href="../HTML/esqueci-senha.html" class="esqueci">Esqueceu sua senha?</a>
+            </div>    
+
+            <button class="botao-entrar" id="btnEntrar">Entrar</button>
         </div>
     </div>
 
 
     <!-- JAVA SCRIPT -->
-     <script>
-        //JS - VISUALIZAÇÃO DA SENHA / OLHINHO
-        function toggleSenha() {
-            const inputSenha = document.querySelector('#senha');
-            const iconeOlho = document.querySelector('#iconeOlho');
+    <script>
+    // 1. Seleção de elementos (centralizado para facilitar)
+        const inputEmail = document.querySelector('#email');
+        const inputSenha = document.querySelector('#senha');
+        const iconeOlho = document.querySelector('#iconeOlho');
+        const checkLembrar = document.querySelector('#check-lembrar');
+        const btnEntrar = document.querySelector('#btnEntrar');
 
+    // 2. JS - VISUALIZAÇÃO DA SENHA / OLHINHO
+        function toggleSenha() {
             if (inputSenha.type === 'password') {
                 inputSenha.type = 'text'; // mostra a senha
              iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
@@ -53,26 +65,42 @@
             }
         }
 
-        document.querySelector('#btnEntrar').addEventListener('click', function() {
-            const email = document.querySelector('#email').value;
-            const senhaDigitada = document.querySelector('#senha').value;
+    // 3. AO CARREGAR A PÁGINA: Verifica se existe e-mail salvo
+    window.onload = () => {
+        const emailSalvo = localStorage.getItem('emailLembrado');
+        if (emailSalvo) {
+            inputEmail.value = emailSalvo;
+            checkLembrar.checked = true;
+        }
+    };
 
-            // Busca a senha que foi salva na tela "Criar-Senha"
-            const senhaSalva = localStorage.getItem('senhaCadastrada');
+    // 4. LÓGICA DE LOGIN (CLIQUE ÚNICO)
+    btnEntrar.addEventListener('click', function(event) {
+        // Impede comportamentos estranhos de links <a> em volta do botão
+        event.preventDefault(); 
 
-            if (email === '' || senhaDigitada === '') {
-                alert("Ops! Preencha todos os campos para entrar.");
-                return;
-            }
+        const email = inputEmail.value;
+        const senhaDigitada = inputSenha.value;
+        const senhaSalva = localStorage.getItem('senhaCadastrada');
 
-            // Salvando a senha
-            if (senhaDigitada === senhaSalva) {
-                alert("Login realizado com sucesso. Bem-vindo(a)!");
-                window.location.href = "home.html"; // Vai para tela principal
+        // Verifica se os campos estão vazios
+        if (email === '' || senhaDigitada === '') {
+            alert("Ops! Preencha todos os campos para entrar.");
+            return;
+        }
+
+        // Validação da senha
+        if (senhaDigitada === senhaSalva) {
+            
+            // --- INÍCIO DA LÓGICA "LEMBRAR DE MIM" ---
+            // Só salva se o login for bem-sucedido
+            if (checkLembrar.checked) {
+                localStorage.setItem('emailLembrado', email);
             } else {
-                alert("Senha incorreta! Tente novamente.");
+                localStorage.removeItem('emailLembrado');
             }
-        })
+        }})
+    
      </script>
 
 
