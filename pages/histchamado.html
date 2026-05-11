@@ -1,0 +1,168 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Helpyfast</title>
+    <link rel="stylesheet" href="/style/histchamado.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="/IMG/logonavbar.png" alt="Helpy Fast">
+        </div>
+        <nav>
+            <a href="/pages/home.html" class="nav-home">HOME</a>
+            <a href="#">CHAMADOS</a>
+            <a href="/pages/perfil.html">
+                <img class="user" src="/svg/iconperfil.svg" alt="perfil">
+            </a>
+
+        </nav>
+    </header>
+
+<div class="card-container">
+    <div class="title-box">
+        <a href="/pages/home.html" class="back-arrow">
+            <img src="/svg/iconsetaleft.svg" alt="seta retornando">
+        </a>
+        <span>Histórico de chamados</span>
+    </div>
+
+   <div class="input-grupo">
+       
+                
+    <input type="text" id="pesquisa" placeholder="Buscar chamado...">
+    <span class="lupa">
+        <img src="/svg/lupa.svg" alt="lupa pesquisa">
+    </span>
+            </div>
+
+            <div class="filtro">
+                <button class="cancelado">Cancelado
+                    <img src="/svg/cancelado.svg" alt="">
+                </button>
+                <button class="aberto">Em aberto
+                    <img src="/svg/emaberto.svg" alt="">
+                </button>
+                <button class="todos">Todos
+                    <img src="/svg/todos.svg" alt="">
+                </button>
+                <button class="resolvidos">Resolvidos
+                    <img src="/svg/resolvidos.svg" alt="">
+                </button>
+            </div> -->
+            <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de chamados Helpyfast</title>
+    <link rel="stylesheet" href="/style/histchamado.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="/IMG/logonavbar.png" alt="Helpy Fast">
+        </div>
+        <nav>
+            <a href="/pages/home.html" class="nav-home">HOME</a>
+            <a href="#" class="active">CHAMADOS</a>
+            <a href="/pages/perfil.html">
+                <img class="user" src="/svg/iconperfil.svg" alt="perfil">
+            </a>
+        </nav>
+    </header>
+
+    <div class="card-container">
+        <div class="title-box">
+            <a href="/pages/home.html" class="back-arrow">
+                <img src="/svg/iconsetaleft.svg" alt="seta retornando">
+            </a>
+            <span>Histórico de chamados</span>
+            <img src="/svg/filtrooo.svg" alt="filtro" class="filter-icon">
+        </div>
+
+        <div class="input-grupo">
+            <input type="text" id="pesquisa" placeholder="Buscar chamado...">
+            <span class="lupa">
+                <img src="/svg/lupa.svg" alt="lupa pesquisa">
+            </span>
+        </div>
+
+        <div class="filtro">
+            <button class="btn-filter">
+                <img src="/svg/cancelado.svg" alt=""> Cancelado
+            </button>
+            <button class="btn-filter">
+                <img src="/svg/emaberto.svg" alt=""> Em aberto
+            </button>
+            <button class="btn-filter btn-active">
+                <img src="/svg/todos.svg" alt=""> Todos
+            </button>
+            <button class="btn-filter">
+                <img src="/svg/resolvidos.svg" alt=""> Resolvidos
+            </button>
+        </div>
+
+        <div class="tickets-grid">
+            
+            <div class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Computador Travando</h3>
+                    <span class="date">12 de abril, 12:30hr</span>
+                </div>
+                
+                <div class="ticket-info">
+                    <span class="status open">
+                        <img src="/svg/iconclockyellow.svg" alt=""> Em aberto
+                    </span>
+                    <span class="location">Sala 5</span>
+                    <span class="dept">Administração</span>
+                </div>
+                
+                <hr class="divider">
+
+                <div class="ticket-content">
+                    <p><strong>Funcionário: João</strong></p>
+                    <p class="desc">O computador está travando e muito lento ao abrir qualquer tipo de programa.</p>
+                    <div class="img-container">
+                        <img src="/IMG/computadortravavndo.png" alt="Problema no monitor">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+                
+                <div class="ticket-info">
+                    <span class="status solved">
+                        <img src="/svg/resolvidos.svg" alt=""> Resolvido
+                    </span>
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+
+                <hr class="divider">
+
+                <div class="ticket-content">
+                    <p><strong>Funcionário: Gustavo</strong></p>
+                    <p class="desc">A máquina aqui da oficina não está ligando, e suas engrenagens não rodam.</p>
+                    <div class="img-container">
+                        <img src="/IMG/maquinaq.png" alt="Problema na máquina">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
