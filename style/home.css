@@ -57,7 +57,7 @@ nav a {
 
 .card-big {
   flex: 2;
-  background: #eae6f5;
+  background: #fff;
   border-radius: 25px;
   padding: 60px 40px;
   text-align: center;
@@ -116,7 +116,7 @@ nav a {
 
 
 .card-small {
-  background: #eae6f5;
+  background: #fff;
   border-radius: 20px;
   padding: 20px;
   height: auto;

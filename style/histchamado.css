@@ -9,7 +9,7 @@
 
 body {
     background: #ffffff;
-    /* Fundo levemente azulado para destacar o card branco se preferir: background: #F0F2F5; */
+
 }
 
 /* --- HEADER --- */
@@ -45,9 +45,9 @@ nav a {
     border-radius: 50%;
 }
 
-/* --- CONTAINER PRINCIPAL --- */
+
 .card-container {
-    max-width: 1100px; /* Aumentado para caber dois cards lado a lado confortavelmente */
+    max-width: 1100px; 
     margin: 40px auto;
     border-radius: 20px;
     overflow: hidden;
@@ -79,7 +79,7 @@ nav a {
     width: 24px;
 }
 
-/* --- INPUT DE BUSCA --- */
+
 .input-grupo {
     padding: 25px 30px 10px 30px;
     position: relative;
@@ -104,7 +104,7 @@ input {
     cursor: pointer;
 }
 
-/* --- FILTROS --- */
+
 .filtro {
     display: flex;
     justify-content: center;
@@ -220,7 +220,7 @@ input {
     object-fit: cover;
 }
 
-/* Responsividade básica */
+
 @media (max-width: 850px) {
     .tickets-grid {
         grid-template-columns: 1fr;
