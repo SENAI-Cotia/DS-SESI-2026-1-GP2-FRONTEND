@@ -46,7 +46,7 @@
                 </select>
             </div>
             
-            <a href="../HTML/criar-senha.html"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+            <button class="botao-continuar" id="btnContinuar">Continuar</button>
 
             <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
              <div class="passos">
@@ -59,15 +59,22 @@
 
     <!-- JAVA SCRIPT -->
     <script>
-        document.querySelector('#btnContinuar').addEventListener('click', function() {
+        document.querySelector('#btnContinuar').addEventListener('click', function(event) {
+            event.preventDefault(); 
+
             const email = document.querySelector('#email').value;
             const data = document.querySelector('#data').value;
             const area = document.querySelector('#area').value;
 
             if (email === '' || data === '' || area === '') {
                 alert("Ops! Preencha todos os campos para entrar.");
+                return; // Bloqueia o avanço
             } 
-        })
+
+            localStorage.setItem('emailEmCadastro', email);
+
+            window.location.href = "../HTML/criar-senha.html";
+        });
     </script>
 
 </body>
