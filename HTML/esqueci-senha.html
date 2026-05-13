@@ -17,6 +17,12 @@
 
             <div class="card-inform">
 
+                <!-- IDENTIFICA DE QUEM É A CONTA -->
+            <div class="input-grupo">
+                <h5>E-mail da sua conta</h5>
+                <input type="email" id="email-recuperado" placeholder="Insira o email cadastrado">
+            </div>
+
             <div class="input-grupo">
                <h5>Crie uma nova senha</h5>
                <div class="senha-container">
@@ -92,23 +98,32 @@
              }
 
             // 3. Função para verificar se a nova senha é igual à salva no "banco"
-            function verificarSenhaAntiga() {
+           function verificarSenhaAntiga() {
                 const senhaNova = inputSenha.value;
-                const senhaAntiga = localStorage.getItem('senhaCadastrada'); // Pega a senha que você salvou antes
-            
+                
+                // Como estamos no front-end simulado, checamos contra a última senha cadastrada globalmente de teste
+                const senhaAntigaSalva = localStorage.getItem('senhaCadastrada');
+                
+                if (senhaAntigaSalva && senhaNova === senhaAntigaSalva && senhaNova !== "") {
+                    exibirAvisoSenhaAntiga(true);
+                    return true;
+                }
+                
+                exibirAvisoSenhaAntiga(false);
+                return false;
+            }
 
-                if (senhaAntiga && senhaNova === senhaAntiga && senhaNova !== "") {
-                    avisoSenhaAntiga.style.display = 'block'; // Mostra o aviso
+            function exibirAvisoSenhaAntiga(mostrar) {
+                if (mostrar) {
+                    avisoSenhaAntiga.style.display = 'block';
                     btnContinuar.style.opacity = "0.5";
                     btnContinuar.style.pointerEvents = "none";
-                    return true; // É igual a antiga
                 } else {
-                    avisoSenhaAntiga.style.display = 'none';  // Esconde o aviso
+                    avisoSenhaAntiga.style.display = 'none';
                     btnContinuar.style.opacity = "1";
                     btnContinuar.style.pointerEvents = "auto";
-                    return false; // É diferernte
                 }
-            }
+            }   
 
         // 4. VALIDANDO EM TEMPO REAL DA CRIAÇÃO DA SENHA
         inputSenha.addEventListener('input', () => {
@@ -187,8 +202,20 @@
             return;
         }
 
+        if (email === "adm@helpyfast.com") {
+            alert("O Adm possui credenciais fixas que não podem ser alteradas.");
+            return;
+        }
+
+        // garante que o funcionario/tecnico exista
+        if (localStorage.getItem(email) === null) {
+            alert("Este email não consta no sistema.")
+            return;
+        }
+
         // SALVAMENTO FINAL APÓS TODAS AS VALIDAÇÕES
-        localStorage.setItem('senhaCadastrada', inputSenha.value); // salva a senha antes de mudar de página
+        localStorage.setItem(email, senhaNova); // salva a nova senha usando o email como chave
+
         alert("Senha cadastrada com sucesso!"); // após finalizar tudo
         window.location.href = "acesso.html"; // Mude para o nome da sua próxima página
 

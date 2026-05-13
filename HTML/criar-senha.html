@@ -147,18 +147,26 @@ document.querySelector('#btnContinuar').addEventListener('click', function(event
         return;
     }
 
-    // Se passou por tudo:
-    alert("Senha cadastrada com sucesso!");
+    //Recupera o email que foi cadastrado na tela anterior
+    const emailVinculado = localStorage.getItem('emailEmCadastro');
 
-    // Salva a senha antes de mudar de página
-    localStorage.setItem('senhaCadastrada', senha);
+    if (!emailVinculado) {
+        alert("Erro: nenhum e-mail foi encontrado. Tente novamente.");
+        window.location.href = "../HTML/cadastro-funcionario.html";
+        return;  
+    }
 
-    window.location.href = "acesso.html"; // Mude para o nome da sua próxima página
+    // salva a senha usando o email do usuario como chave
+    localStorage.setItem(emailVinculado, senha);
 
-    // PROTÓTIPO DE BANCO DE DADOS
-    localStorage.setItem('senhaCadastrada', senha);
+    // limpa o email temporario e organiza
+    localStorage.removeItem('emailEmCadastro');
+
+    alert("Usuário cadastrado com sucesso!");
+
+    // vai para pág. de login para testar o acesso
+    window.location.href = "../HTML/index.html";
 });
-
     </script>
 
 </body>

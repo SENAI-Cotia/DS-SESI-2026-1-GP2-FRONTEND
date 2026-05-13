@@ -38,7 +38,7 @@
                 </select>
             </div>
             
-            <a href="../HTML/criar-senha.html"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+            <button class="botao-continuar" id="btnContinuar">Continuar</button>
 
             <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
              <div class="passos">
@@ -49,16 +49,23 @@
         </div>
     </div>
 
-    <!-- JASA SCRIPT -->
+    <!-- JAVA SCRIPT -->
     <script>
-        document.querySelector('#btnContinuar').addEventListener('click', function() {
+        document.querySelector('#btnContinuar').addEventListener('click', function(event) {
+            event.preventDefault();
+
             const email = document.querySelector('#email').value;
             const especialidade = document.querySelector('#especialidade').value;
 
             if (email === '' || especialidade === '') {
                 alert("Ops! Preencha todos os campos para entrar.");
+                return;
             }
-        })
+
+            localStorage.setItem('emailEmCadastro', email);
+
+            window.location.href = "../HTML/criar-senha.html"
+        });
     </script>
 
 </body>
