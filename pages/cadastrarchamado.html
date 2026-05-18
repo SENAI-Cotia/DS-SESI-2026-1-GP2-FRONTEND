@@ -134,26 +134,21 @@ const botaoOutroChamado = document.getElementById('btnOutroChamado');
 
 // Função criada para limpar todos os campos do chamado
 function limparFormulario() {
-    // 1. Limpa a descrição (textarea)
     descricao.value = "";
-    
-    // 2. Reseta a localização para a opção padrão (disabled)
     localizacao.value = "";
-    
-    // 3. Desmarca todos os botões de rádio das categorias
+
     for (const radio of categorias) {
         radio.checked = false;
     }
     
-    // 4. Reseta o campo de arquivos (input file)
+    
     fotoInput.value = "";
     
-    // 5. Volta o texto do anexo ao estado original
     fotoTexto.textContent = "Adicionar foto";
-    fotoTexto.style.color = ""; // Remove a cor roxa aplicada anteriormente
+    fotoTexto.style.color = ""; 
 }
 
-// Evento para quando o usuário escolhe uma foto
+
 fotoInput.addEventListener('change', function () {
     if (this.files && this.files[0]) {
         fotoTexto.textContent = `Foto: ${this.files[0].name}`;
@@ -161,7 +156,7 @@ fotoInput.addEventListener('change', function () {
     }
 });
 
-// Evento unificado para o Enviar chamado
+
 btnEnviar.addEventListener('click', function (event) {
     event.preventDefault(); // Impede qualquer comportamento padrão de recarregar a página
     

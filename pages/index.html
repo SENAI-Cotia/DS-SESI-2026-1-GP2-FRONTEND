@@ -27,7 +27,7 @@
 
                 <span class="olhinho" onclick="toggleSenha()">
                     <!-- Adicionando id="iconeOlho" -->
-                    <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                    <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                 </span>
                 </div>
             </div>
@@ -47,10 +47,10 @@
 
             if (inputSenha.type === 'password') {
                 inputSenha.type = 'text'; // mostra a senha
-             iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+             iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
             } else {
                 inputSenha.type = 'password'; // Esconde a senha
-             iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+             iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
             }
         }
 
