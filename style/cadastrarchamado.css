@@ -241,3 +241,162 @@ select {
     overflow: hidden; /* importante pro topo arredondado funcionar */
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
+
+
+.footer {
+  background-color: #2E1A78;
+  color: #ffffff;
+  padding: 50px 0 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+
+.footer-col h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #bbbbbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 5px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #bbbbbb;
+  text-decoration: none;
+  border: 1px solid #bbbbbb;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background-color: #6D28D9;
+  color: #1a1a1a;
+  border-color: #6D28D9;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #2E1A78;
+  margin: 20px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-col {
+    margin-bottom: 40px;
+  }
+}
+
+/* Fundo escurecido que cobre toda a tela */
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Cor escura transparente */
+    backdrop-filter: blur(4px); /* Efeito de desfoque no fundo (opcional) */
+    z-index: 1000; /* Garante que fique acima de tudo */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Classe que vamos usar no JavaScript para mostrar o modal */
+.modal-overlay.active {
+    display: flex;
+}
+
+/* A caixa branca/roxa do pop-up */
+.modal-content {
+    background-color: #2E1A78; /* Tom de roxo/cinza do seu layout */
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Botão de fechar (X) */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Ícone de sucesso centralizado */
+.success-icon {
+    margin-bottom: 20px;
+}
+
+/* Botão roxo de dentro do modal */
+.btn-primary {
+    background: linear-gradient(90deg, #7C3AED, #4F46E5);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #4f2da0;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
     <div class="container">
@@ -27,7 +27,7 @@
 
                 <span class="olhinho" onclick="toggleSenha()">
                     <!-- Adicionando id="iconeOlho" -->
-                    <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                    <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                 </span>
                 </div>
             </div>
@@ -47,10 +47,10 @@
 
             if (inputSenha.type === 'password') {
                 inputSenha.type = 'text'; // mostra a senha
-             iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+             iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
             } else {
                 inputSenha.type = 'password'; // Esconde a senha
-             iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+             iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
             }
         }
 
@@ -66,6 +66,48 @@
             }
         })
      </script>
+
+
+
+ <footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      
+      <div class="footer-col">
+        <h4>HelpyFast</h4>
+        <p>Criando uma comunicação digital para facilitar o seu dia a dia dentro do seu ambiente de trabalho.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Siga-nos</h4>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <p>&copy; 2026 HelpyFast. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
 </body>
 </html>
  
