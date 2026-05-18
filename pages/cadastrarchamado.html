@@ -102,68 +102,173 @@
     </div>
 </div>
 
+<div id="modalChamado" class="modal-overlay">
+    
+    <div class="modal-content">
+        <span class="close-button" id="btnFecharModal">&times;</span>
+        
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24" width="60" height="60">
+                <circle cx="12" cy="12" r="10" fill="#fff"/>
+                <path d="M9 11.4l2 2 4-4" stroke="#8a8a8a" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+        </div>
+        
+        <h2>Chamado feito com sucesso!</h2>
+        
+        <button id="btnOutroChamado" class="btn-primary">Realizar outro chamado</button>
+    </div>
+</div>
 
+<script>
 
-    <script>
+    const fotoInput = document.getElementById('foto-input');
+const fotoTexto = document.getElementById('foto-texto');
+const btnEnviar = document.getElementById('btn-enviar');
+const descricao = document.getElementById('descricao');
+const localizacao = document.getElementById('localizacao');
+const categorias = document.getElementsByName('categoria');
+const modal = document.getElementById('modalChamado');
+const botaoFecharX = document.getElementById('btnFecharModal');
+const botaoOutroChamado = document.getElementById('btnOutroChamado');
 
-        const fotoInput = document.getElementById('foto-input');
-        const fotoTexto = document.getElementById('foto-texto');
-        const btnEnviar = document.getElementById('btn-enviar');
-        const descricao = document.getElementById('descricao');
-        const localizacao = document.getElementById('localizacao');
-        const categorias = document.getElementsByName('categoria');
+// Função criada para limpar todos os campos do chamado
+function limparFormulario() {
+    // 1. Limpa a descrição (textarea)
+    descricao.value = "";
+    
+    // 2. Reseta a localização para a opção padrão (disabled)
+    localizacao.value = "";
+    
+    // 3. Desmarca todos os botões de rádio das categorias
+    for (const radio of categorias) {
+        radio.checked = false;
+    }
+    
+    // 4. Reseta o campo de arquivos (input file)
+    fotoInput.value = "";
+    
+    // 5. Volta o texto do anexo ao estado original
+    fotoTexto.textContent = "Adicionar foto";
+    fotoTexto.style.color = ""; // Remove a cor roxa aplicada anteriormente
+}
 
-        // coiso pra add foto e mudar o texto
-        fotoInput.addEventListener('change', function () {
-            if (this.files && this.files[0]) {
-                fotoTexto.textContent = `Foto: ${this.files[0].name}`;
-                fotoTexto.style.color = "#6200ee";
-            }
-        });
+// Evento para quando o usuário escolhe uma foto
+fotoInput.addEventListener('change', function () {
+    if (this.files && this.files[0]) {
+        fotoTexto.textContent = `Foto: ${this.files[0].name}`;
+        fotoTexto.style.color = "#6200ee";
+    }
+});
 
+// Evento unificado para o Enviar chamado
+btnEnviar.addEventListener('click', function (event) {
+    event.preventDefault(); // Impede qualquer comportamento padrão de recarregar a página
+    
+    let categoriaSelecionada = false;
+    let valorCategoria = "";
 
-        btnEnviar.addEventListener('click', function () {
-            let categoriaSelecionada = false;
-            let valorCategoria = "";
+    // Validação da categoria
+    for (const radio of categorias) {
+        if (radio.checked) {
+            categoriaSelecionada = true;
+            valorCategoria = radio.value;
+            break;
+        }
+    }
 
-            // ve se a categoria foi selecionada 
-            for (const radio of categorias) {
-                if (radio.checked) {
-                    categoriaSelecionada = true;
-                    valorCategoria = radio.value;
-                    break;
-                }
-            }
+    if (!categoriaSelecionada) {
+        alert("Por favor, selecione a Categoria do Problema.");
+        return;
+    }
 
+    // Validação da descrição
+    if (descricao.value.trim() === "") {
+        alert("Por favor, descreva o que aconteceu.");
+        descricao.focus();
+        return;
+    }
 
-            if (!categoriaSelecionada) {
-                alert("Por favor, selecione a Categoria do Problema.");
-                return;
-            }
+    // Validação da localização
+    if (localizacao.value === "") {
+        alert("Por favor, selecione sua localização.");
+        localizacao.focus();
+        return;
+    }
 
-            if (descricao.value.trim() === "") {
-                alert("Por favor, descreva o que aconteceu.");
-                descricao.focus();
-                return;
-            }
+    // Se passou em todas as validações, simula o envio salvando no console
+    console.log({
+        categoria: valorCategoria,
+        descricao: descricao.value,
+        local: localizacao.value,
+        foto: fotoInput.files[0] ? fotoInput.files[0].name : "Sem foto"
+    });
 
-            if (localizacao.value === "") {
-                alert("Por favor, selecione sua localização.");
-                localizacao.focus();
-                return;
-            }
+    // Abre o pop-up de sucesso
+    modal.classList.add('active'); 
+    
+    // Limpa a tela de fundo imediatamente para o próximo chamado
+    limparFormulario();
+});
 
+// Fechar o pop-up no (X)
+botaoFecharX.addEventListener('click', function() {
+    modal.classList.remove('active');
+});
 
-            alert(`Sucesso! Chamado de ${valorCategoria} enviado.`);
+// Fechar no botão "Realizar outro chamado"
+botaoOutroChamado.addEventListener('click', function() {
+    modal.classList.remove('active');
+});
 
-            console.log({
-                categoria: valorCategoria,
-                descricao: descricao.value,
-                local: localizacao.value,
-                foto: fotoInput.files[0] ? fotoInput.files[0].name : "Sem foto"
-            });
-        });
-    </script>
+// Fechar se o usuário clicar no fundo escuro fora da caixa branca
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.classList.remove('active');
+    }
+});
+
+</script>
+
+ <footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      
+      <div class="footer-col">
+        <h4>HelpyFast</h4>
+        <p>Criando uma comunicação digital para facilitar o seu dia a dia dentro do seu ambiente de trabalho.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Siga-nos</h4>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <p>&copy; 2026 HelpyFast. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
 
 </body>
 
