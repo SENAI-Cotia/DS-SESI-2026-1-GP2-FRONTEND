@@ -60,8 +60,9 @@
 
 
     <!-- JAVA SCRIPT -->
+    <!-- JAVA SCRIPT CORRIGIDO -->
     <script>
-    // 1. Seleção de elementos (centralizado para facilitar)
+    // 1. Seleção de elementos
         const inputEmail = document.querySelector('#email');
         const inputSenha = document.querySelector('#senha');
         const iconeOlho = document.querySelector('#iconeOlho');
@@ -83,30 +84,30 @@
             }
         }
 
-    // 3. AO CARREGAR A PÁGINA: Verifica se existe e-mail salvo e captura o tipo da URL
+    // 3. AO CARREGAR A PÁGINA: Altera os textos com base no localStorage
     window.onload = () => {
-        // Carrega o email salvo
+        // Carrega o email salvo no "Lembre de mim"
         const emailSalvo = localStorage.getItem('emailLembrado');
         if (emailSalvo) {
             inputEmail.value = emailSalvo;
             checkLembrar.checked = true;
         }
 
-        // do front ao back
-        const urlParams = new URLSearchParams(window.location.search);
-        const tipoUsuario = urlParams.get('tipo'); // pega adm, funcionario ou tecnico
+        // ALTERADO: Agora busca a escolha salva no localStorage pela tela anterior
+        const tipoUsuario = localStorage.getItem('tipoUsuario'); 
 
         if (tipoUsuario) {
-            // preenche o campo oculto que o back vai ler depois
+            // Preenche o campo oculto que o back-end vai ler depois
             inputTipoUsuario.value = tipoUsuario;
 
+            // Personaliza as mensagens da tela de acordo com o perfil
             if (tipoUsuario === 'adm') {
                 tituloPrincipal.textContent = "Área Administrativa";
                 subtitulo.textContent = "Faça o login para gerenciar o sistema";
             } else if (tipoUsuario === 'funcionario') {
                 tituloPrincipal.textContent = "Área do Funcionário";
                 subtitulo.textContent = "Faça o login para abrir seus chamados";
-            } else if ( tipoUsuario === 'tecnico') {
+            } else if (tipoUsuario === 'tecnico') {
                 tituloPrincipal.textContent = "Área do Técnico";
                 subtitulo.textContent = "Faça o login para receber seus chamados";
             }
@@ -115,59 +116,58 @@
 
     // 4. LÓGICA DE LOGIN (CLIQUE ÚNICO)
     document.querySelector('#form-login').addEventListener('submit', function(event) {
-        // Impede comportamentos estranhos de links <a> em volta do botão
         event.preventDefault(); 
 
         const email = inputEmail.value;
         const senhaDigitada = inputSenha.value;
-        // Captura o valor que foi salvo no campo oculto
         const tipoIdentificado = inputTipoUsuario.value;
 
-        // RETIREI O "IF" DE CAMPOS VAZIOS POIS O HTML COM "required" BARRA AUTOMATICAMENTE
+        let loginValido = false;
 
-        // Validação POR PERFIL
-       let loginValido = false;
+        // CORREÇÃO: Validação rigorosa por perfil selecionado
+        if (tipoIdentificado === 'adm') {
+            const emailAdmFixo = "adm@helpyfast.com";
+            const senhaAdmFixa = "Adm.1234";
 
-    if (tipoIdentificado === 'adm') {
-        // Login fixo exclusivo da gerência
-        const emailAdmFixo = "adm@helpyfast.com";
-        const senhaAdmFixa = "adm.1234";
-
-        if (email === emailAdmFixo && senhaDigitada === senhaAdmFixa) {
-            loginValido = true;
+            // Se for a rota ADM, exige estritamente os dados fixos
+            if (email === emailAdmFixo && senhaDigitada === senhaAdmFixa) {
+                loginValido = true;
+            } else {
+                alert("E-mail ou senha de Administrador incorretos!");
+                return; 
+            }
         } else {
-            alert("E-mail ou senha de Administrador incorretos!");
-            return; // Para a execução do código aqui
-        }
-    } else {
-        // Busca a senha cadastrada pelo ADM usando o e-mail digitado como chave
-        const senhaCadastradaPeloAdm = localStorage.getItem(email);
+            // Se for funcionário ou técnico, busca no localStorage pela chave do e-mail
+            const senhaCadastradaPeloAdm = localStorage.getItem(email);
 
-        if (senhaCadastradaPeloAdm && senhaDigitada === senhaCadastradaPeloAdm) {
-            loginValido = true;
-        } else {
-            alert("Usuário não cadastrado ou senha incorreta!");
-            return; // Para a execução do código aqui
+            if (senhaCadastradaPeloAdm && senhaDigitada === senhaCadastradaPeloAdm) {
+                loginValido = true;
+            } else {
+                alert("Usuário não cadastrado ou senha incorreta!");
+                return; 
+            }
         }
-    }
-    // --- FIM DA VALIDAÇÃO POR PERFIL ---
 
-    // Se o código chegou até aqui, significa que o login é válido
-    if (loginValido) {
-        // --- INÍCIO DA LÓGICA "LEMBRAR DE MIM" ---
-        if (checkLembrar.checked) {
-            localStorage.setItem('emailLembrado', email);
-        } else {
-            localStorage.removeItem('emailLembrado');
+        // Se o login for válido, finaliza o processo
+        if (loginValido) {
+            if (checkLembrar.checked) {
+                localStorage.setItem('emailLembrado', email);
+            } else {
+                localStorage.removeItem('emailLembrado');
+            }
+            
+            console.log(`Dados enviados: Email: ${email}, Tipo de Usuario: ${tipoIdentificado}`);
+
+            alert("Login realizado com sucesso. Bem-vindo(a)!");
+            
+            // DICA: Você pode mudar o redirecionamento dependendo do perfil se quiser
+            if (tipoIdentificado === 'adm') {
+                window.location.href = "dashboard_adm.html"; // Página do administrador
+            } else {
+                window.location.href = "home.html"; // Página comum
+            }
         }
-        
-        console.log(`Dados enviados: Email: ${email}, Tipo de Usuario: ${tipoIdentificado}`);
-        // --- FIM DA LÓGICA "LEMBRAR DE MIM" ---
-
-        alert("Login realizado com sucesso. Bem-vindo(a)!");
-        window.location.href = "home.html"; // Redireciona
-    }
-});
+    });
     </script>
 
 </body>
