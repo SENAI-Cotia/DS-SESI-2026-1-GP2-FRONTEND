@@ -16,17 +16,17 @@
 
             <div class="botoes-container">
 
-                <button class="areas" onclick="window.location.href='index.html'">
+                <button class="areas" onclick="definirTipo('adm')">
                     ADM
                         <img src="/IMG/adm-img.svg" alt="adm">
                 </button>
 
-                <button class="areas" onclick="window.location.href='/HTML/index.html?tipo=funcionario'">
+                <button class="areas" onclick="definirTipo('funcionario')">
                     FUNCIONÁRIO
                         <img src="/IMG/funcionario-img.svg" alt="funcionario">
                 </button>
 
-                <button class="areas" onclick="window.location.href='/HTML/index.html?tipo=tecnico'">
+                <button class="areas" onclick="definirTipo('tecnico')">
                     TÉCNICO
                         <img src="/IMG/tecnico-img.svg" alt="tecnico">
                 </button>
@@ -34,5 +34,16 @@
 
         </div>
     </div>
+
+    <!-- script para salvar a escolha antes de mudar de página -->
+     <script>
+        function definirTipo(tipo) {
+            // salva a informação de quem que está indo para próxima página
+            localStorage.setItem('tipoUsuario', tipo);
+            
+            // vai para tela de login
+            window.location.href = 'index.html';
+        }
+     </script>
 </body>
 </html>

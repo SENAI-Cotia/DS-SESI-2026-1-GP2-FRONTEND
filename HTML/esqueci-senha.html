@@ -179,47 +179,37 @@
 
         inputConfirmar.addEventListener('input', validarCoincidencia);
 
-
-    // 6. FINALIZAÇÃO E SALVAMENTO
+        // 6. FINALIZAÇÃO E SALVAMENTO
         btnContinuar.addEventListener('click', (event) => {
             event.preventDefault();
 
-        // a. Verifica campos vazios
-        if (inputSenha.value === '' || inputConfirmar.value === '') {
-            alert("Por favor, preencha todos os campos.");
-            return;
-        }
-        
-        // b. Verifica se as regras de segurança foram atingidas
-        if (!senhaValida) {
-            alert("Sua senha ainda não atende a todos os requisitos ou é igual a anterior.");
-            return;
-        }
+            const inputEmail = document.querySelector('#email-recuperado');
 
-        // c. Verifica se as senhas são iguais
-        if (inputSenha.value !== inputConfirmar.value) {
-            alert("As senhas não coincidem. Verifique se digitou corretamente.");
-            return;
-        }
+            // a. Verifica campos vazios
+            if (inputEmail.value === '' || inputSenha.value === '' || inputConfirmar.value === '') {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
 
-        if (email === "adm@helpyfast.com") {
-            alert("O Adm possui credenciais fixas que não podem ser alteradas.");
-            return;
-        }
+            // b. Verifica se a senha atende aos requisitos de segurança
+            if (!senhaValida) {
+                alert("A senha não atende a todos os requisitos de segurança.");
+                return;
+            }
 
-        // garante que o funcionario/tecnico exista
-        if (localStorage.getItem(email) === null) {
-            alert("Este email não consta no sistema.")
-            return;
-        }
+            // c. Verifica se as duas senhas são iguais
+            if (inputSenha.value !== inputConfirmar.value) {
+                alert("As senhas não coincidem. Verifique os campos.");
+                return;
+            }
 
-        // SALVAMENTO FINAL APÓS TODAS AS VALIDAÇÕES
-        localStorage.setItem(email, senhaNova); // salva a nova senha usando o email como chave
+            // d. Salva a nova senha no localStorage (Simulação de Banco de Dados)
+            localStorage.setItem('senhaCadastrada', inputSenha.value);
+            alert("Senha alterada com sucesso!");
 
-        alert("Senha cadastrada com sucesso!"); // após finalizar tudo
-        window.location.href = "acesso.html"; // Mude para o nome da sua próxima página
-
-    });
+            // e. Redireciona para a próxima tela (Exemplo: tela de login)
+            window.location.href = "acesso.html"; 
+         });
     </script>
 </body>
 </html>
