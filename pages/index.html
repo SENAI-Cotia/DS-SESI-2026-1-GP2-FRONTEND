@@ -10,15 +10,13 @@
     <div class="container">
         <div class="card">
 
-            <div class="logo"><img src="../IMG/logo-helpyfast.png" alt="logo"></div>
+            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
 
             <h3>Bem-vindo, vamos começar!</h3>
             <h4>Faça o login na sua conta!</h4>
 
-            <div class="input-grupo">
-                <h5>E-mail</h5>
-                <input type="text" id="email" placeholder="Insira seu e-mail">
-            </div>
+            <!-- Facilitando para o back-end -->
+            <form id="form-login">
 
             <div class="input-grupo">
                 <h5>Senha</h5>
@@ -30,21 +28,53 @@
                     <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                 </span>
                 </div>
-            </div>
 
-            <button class="botao-entrar" id="btnEntrar">Entrar</button>
+                <div class="input-grupo">
+                    <h5>Senha</h5>
+                    <div class="senha-container">
+                    <input type="password" id="senha" placeholder="Insira sua senha" required>
+
+                    <span class="olhinho" onclick="toggleSenha()">
+                        <!-- Adicionando id="iconeOlho" -->
+                        <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                    </span>
+                    </div>
+                </div>
+
+                <!-- campo "oculto" para o back-end -->
+                <input type="hidden" id="tipo-usuario-input">
+
+                <div class="mais-opcoes">
+
+                    <label class="lembre-mim">
+                        <input type="checkbox" id="check-lembrar"> <span>Lembre de mim</span>
+                    </label>
+                <a href="../HTML/esqueci-senha.html" class="esqueci">Esqueceu sua senha?</a>
+                </div>    
+
+                <button type="submit" class="botao-entrar" id="btnEntrar">Entrar</button>
+
+            </form>
         </div>
     </div>
 
-    <a href="#"></a>
 
     <!-- JAVA SCRIPT -->
-     <script>
-        //JS - VISUALIZAÇÃO DA SENHA / OLHINHO
-        function toggleSenha() {
-            const inputSenha = document.querySelector('#senha');
-            const iconeOlho = document.querySelector('#iconeOlho');
+    <!-- JAVA SCRIPT CORRIGIDO -->
+    <script>
+    // 1. Seleção de elementos
+        const inputEmail = document.querySelector('#email');
+        const inputSenha = document.querySelector('#senha');
+        const iconeOlho = document.querySelector('#iconeOlho');
+        const checkLembrar = document.querySelector('#check-lembrar');
+        const btnEntrar = document.querySelector('#btnEntrar');
+        const inputTipoUsuario = document.querySelector('#tipo-usuario-input');
 
+        const tituloPrincipal = document.querySelector('.card h3');
+        const subtitulo = document.querySelector('.card h4');
+
+    // 2. JS - VISUALIZAÇÃO DA SENHA / OLHINHO
+        function toggleSenha() {
             if (inputSenha.type === 'password') {
                 inputSenha.type = 'text'; // mostra a senha
              iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
@@ -54,17 +84,37 @@
             }
         }
 
-        document.querySelector('#btnEntrar').addEventListener('click', function() {
-            const email = document.querySelector('#email').value;
-            const senha = document.querySelector('#senha').value;
+    // 3. AO CARREGAR A PÁGINA: Altera os textos com base no localStorage
+    window.onload = () => {
+        // Carrega o email salvo no "Lembre de mim"
+        const emailSalvo = localStorage.getItem('emailLembrado');
+        if (emailSalvo) {
+            inputEmail.value = emailSalvo;
+            checkLembrar.checked = true;
+        }
+        
 
-            if (email === '' || senha === '') {
-                alert("Ops! Preencha todos os campos para entrar.");
-            } else {
-                // redirecionando o usuário para o destino
-                alert("Entrando...")
+        // ALTERADO: Agora busca a escolha salva no localStorage pela tela anterior
+        const tipoUsuario = localStorage.getItem('tipoUsuario'); 
+
+        if (tipoUsuario) {
+            // Preenche o campo oculto que o back-end vai ler depois
+            inputTipoUsuario.value = tipoUsuario;
+
+            // Personaliza as mensagens da tela de acordo com o perfil
+            if (tipoUsuario === 'adm') {
+                tituloPrincipal.textContent = "Área Administrativa";
+                subtitulo.textContent = "Faça o login para gerenciar o sistema";
+            } else if (tipoUsuario === 'funcionario') {
+                tituloPrincipal.textContent = "Área do Funcionário";
+                subtitulo.textContent = "Faça o login para abrir seus chamados";
+            } else if (tipoUsuario === 'tecnico') {
+                tituloPrincipal.textContent = "Área do Técnico";
+                subtitulo.textContent = "Faça o login para receber seus chamados";
             }
-        })
+        }
+
+        
      </script>
 
 
@@ -110,4 +160,3 @@
 </html>
 </body>
 </html>
- 
