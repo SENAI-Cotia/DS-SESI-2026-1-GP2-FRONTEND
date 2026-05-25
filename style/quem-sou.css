@@ -1,0 +1,212 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ 
+.container {
+    display: flex;
+    align-items: center; /* alinha a altura*/
+    justify-content: center;  /* alinha a largura*/
+    min-height: 100vh;
+    background: linear-gradient(550deg, #2E1A78, #4F46E5, #3354A4);
+}
+ 
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 50px 60px;
+    text-align: center;
+    min-width: 300px;
+    width: 90%;
+    max-width: 550px;
+}
+ 
+h5 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 550;
+}
+ 
+h3 {
+    font-size: 20px;
+}
+ 
+h4 {
+    margin-bottom: 3px;
+    font-style: #7463F6;
+    font-size: 17px;
+}
+ 
+.logo {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+ 
+.logo img {
+    width: 150px;
+    height: auto;
+}
+ 
+.card h4 {
+    color: #7463F6;
+    font-weight: 500;
+}
+ 
+.input-grupo { /* espaço entre as caixas de texto*/
+    margin-bottom: 15px;
+    width: 100%;
+}
+ 
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+    border-color: #7463F6;
+}
+ 
+input:focus {
+    border-color: #492eaa;
+    box-shadow: 0 0 5px rgba(79, 70, 229, 0.3);
+}
+ 
+.botao-entrar {
+    background: linear-gradient(90deg, #7C3AED, #4F46E5);
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px;
+    width: 60%;
+    transition: transform 0.1s ease, background-color 0.3s;
+   
+}
+ 
+.botao-entrar:hover {
+    background: linear-gradient(90deg, #4F46E5, #7c3aed) ;
+    opacity: 0.9;
+}
+ 
+.botao-entrar:active {
+    transform: scale(0.95); /* Diminui para 95% do tamanho original, efeito click */
+}
+ 
+.senha-container {
+   position: relative;  /* deixa o icone (olhinho) flutuar dentro do campo de inserir a senha */
+    width: 100%;
+}
+ 
+.olhinho {
+    position: absolute;
+    right: 15px; /* distancia da borda direita */
+    top: 56%; /*centraliza na vertical*/
+    transform: translateY(-50%); /* alinha */
+    cursor: pointer;
+    user-select: none;
+    font-size: 18px;
+}
+ 
+.olhinho img {
+    width: 23px;
+    height: auto;
+}
+ 
+/* Não deixa o texto da senha ficar por cima do olhinho - da um limite ao texto*/
+.senha-container input {
+    padding-right: 45px;
+}
+ 
+ 
+/* OPÇÕES EXTRAS - tudo na "mesma linha" */
+.mais-opcoes {
+    display: flex;
+    justify-content: space-between; /* um para cada lado */
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+ 
+.lembre-mim {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #6A35B5;
+    cursor: pointer;
+}
+ 
+.lembre-mim input {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+ 
+.esqueci {
+    color: #6A35B5;
+    font-size: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+ 
+/* QUEM SOU EU? */
+ 
+.botoes-container {
+    display: flex;
+    flex-direction: row; /* força o alinhamento lado a lado*/
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+ 
+.areas {
+    background: linear-gradient(90deg, #7C3AED, #4F46E5);
+    border-style: none;
+    color: aliceblue;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 8px;
+ 
+    width: 130px;
+    height: 130px;
+    padding: 15px;
+ 
+    /* alinhamento */
+    display: inline-flex ;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+ 
+    transition: transform 0.1s ease, background-color 0.3s;
+}
+ 
+.areas img {
+    margin: auto auto 0 auto;
+    padding: 0;
+    max-width: 60px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain; /* mantem o tamanho sem esticar*/
+}
+ 
+.areas:hover {
+    background: linear-gradient(90deg, #4F46E5, #7c3aed) ;
+    opacity: 0.9;
+}
+ 
+.areas:active {
+    transform: scale(0.95); /* Diminui para 95% do tamanho original, efeito click */
+}

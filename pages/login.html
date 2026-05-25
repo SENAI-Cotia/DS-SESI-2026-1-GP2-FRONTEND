@@ -4,61 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/login.css">
 </head>
 <body>
     <div class="container">
         <div class="card">
-
-            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
-
+ 
+            <div class="logo"><img src="/IMG/logo-helpyfast.png" alt="logo"></div>
+ 
             <h3>Bem-vindo, vamos começar!</h3>
             <h4>Faça o login na sua conta!</h4>
-
+ 
             <!-- Facilitando para o back-end -->
             <form id="form-login">
-
-            <div class="input-grupo">
-                <h5>Senha</h5>
-                <div class="senha-container">
-                <input type="password" id="senha" placeholder="Insira sua senha">
-
-                <span class="olhinho" onclick="toggleSenha()">
-                    <!-- Adicionando id="iconeOlho" -->
-                    <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
-                </span>
+ 
+                <div class="input-grupo">
+                    <h5>E-mail</h5>
+                    <input type="email" id="email" placeholder="Insira seu e-mail" required>
                 </div>
-
+ 
                 <div class="input-grupo">
                     <h5>Senha</h5>
                     <div class="senha-container">
                     <input type="password" id="senha" placeholder="Insira sua senha" required>
-
+ 
                     <span class="olhinho" onclick="toggleSenha()">
                         <!-- Adicionando id="iconeOlho" -->
-                        <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                        <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                     </span>
                     </div>
                 </div>
-
+ 
                 <!-- campo "oculto" para o back-end -->
                 <input type="hidden" id="tipo-usuario-input">
-
+ 
                 <div class="mais-opcoes">
-
+ 
                     <label class="lembre-mim">
                         <input type="checkbox" id="check-lembrar"> <span>Lembre de mim</span>
                     </label>
-                <a href="../HTML/esqueci-senha.html" class="esqueci">Esqueceu sua senha?</a>
+                <a href="/pages/esqueci-senha.html" class="esqueci">Esqueceu sua senha?</a>
                 </div>    
-
+ 
                 <button type="submit" class="botao-entrar" id="btnEntrar">Entrar</button>
-
+ 
             </form>
         </div>
     </div>
-
-
+ 
+ 
     <!-- JAVA SCRIPT -->
     <!-- JAVA SCRIPT CORRIGIDO -->
     <script>
@@ -69,21 +63,21 @@
         const checkLembrar = document.querySelector('#check-lembrar');
         const btnEntrar = document.querySelector('#btnEntrar');
         const inputTipoUsuario = document.querySelector('#tipo-usuario-input');
-
+ 
         const tituloPrincipal = document.querySelector('.card h3');
         const subtitulo = document.querySelector('.card h4');
-
+ 
     // 2. JS - VISUALIZAÇÃO DA SENHA / OLHINHO
         function toggleSenha() {
             if (inputSenha.type === 'password') {
-                inputSenha.type = 'text'; // mostra a senha
-             iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
+                inputSenha.type = 'text';
+                iconeOlho.src = "/svg/mostrar-senha.svg";
             } else {
-                inputSenha.type = 'password'; // Esconde a senha
-             iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
+                inputSenha.type = 'password';
+                iconeOlho.src = "/svg/ocultar-senha.svg";
             }
         }
-
+ 
     // 3. AO CARREGAR A PÁGINA: Altera os textos com base no localStorage
     window.onload = () => {
         // Carrega o email salvo no "Lembre de mim"
@@ -92,15 +86,14 @@
             inputEmail.value = emailSalvo;
             checkLembrar.checked = true;
         }
-        
-
+ 
         // ALTERADO: Agora busca a escolha salva no localStorage pela tela anterior
-        const tipoUsuario = localStorage.getItem('tipoUsuario'); 
-
+        const tipoUsuario = localStorage.getItem('tipoUsuario');
+ 
         if (tipoUsuario) {
             // Preenche o campo oculto que o back-end vai ler depois
             inputTipoUsuario.value = tipoUsuario;
-
+ 
             // Personaliza as mensagens da tela de acordo com o perfil
             if (tipoUsuario === 'adm') {
                 tituloPrincipal.textContent = "Área Administrativa";
@@ -113,50 +106,64 @@
                 subtitulo.textContent = "Faça o login para receber seus chamados";
             }
         }
-
+    };
+ 
+    // 4. LÓGICA DE LOGIN (CLIQUE ÚNICO)
+    document.querySelector('#form-login').addEventListener('submit', function(event) {
+        event.preventDefault();
+ 
+        const email = inputEmail.value;
+        const senhaDigitada = inputSenha.value;
+        const tipoIdentificado = inputTipoUsuario.value;
+ 
+        let loginValido = false;
+ 
+        // CORREÇÃO: Validação rigorosa por perfil selecionado
+        if (tipoIdentificado === 'adm') {
+            const emailAdmFixo = "adm@helpyfast.com";
+            const senhaAdmFixa = "Adm.1234";
+ 
+            // Se for a rota ADM, exige estritamente os dados fixos
+            if (email === emailAdmFixo && senhaDigitada === senhaAdmFixa) {
+                loginValido = true;
+            } else {
+                alert("E-mail ou senha de Administrador incorretos!");
+                return;
+            }
+        } else {
+            // Se for funcionário ou técnico, busca no localStorage pela chave do e-mail
+            const senhaCadastradaPeloAdm = localStorage.getItem(email);
+ 
+            if (senhaCadastradaPeloAdm && senhaDigitada === senhaCadastradaPeloAdm) {
+                loginValido = true;
+            } else {
+                alert("Usuário não cadastrado ou senha incorreta!");
+                return;
+            }
+        }
+ 
+        // Se o login for válido, finaliza o processo
+        if (loginValido) {
+            if (checkLembrar.checked) {
+                localStorage.setItem('emailLembrado', email);
+            } else {
+                localStorage.removeItem('emailLembrado');
+            }
+           
+            console.log(`Dados enviados: Email: ${email}, Tipo de Usuario: ${tipoIdentificado}`);
+ 
+            alert("Login realizado com sucesso. Bem-vindo(a)!");
+           
+            // DICA: Você pode mudar o redirecionamento dependendo do perfil se quiser
+            if (tipoIdentificado === 'adm') {
+                window.location.href = "/pages/homeadm.html"; // Página do administrador
+            } else {
+                window.location.href = "/pages/home.html"; // Página comum
+            }
+        }
         
-     </script>
-
-
-
- <footer class="footer">
-  <div class="container">
-    <div class="footer-row">
-      
-      <div class="footer-col">
-        <h4>HelpyFast</h4>
-        <p>Criando uma comunicação digital para facilitar o seu dia a dia dentro do seu ambiente de trabalho.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Serviços</a></li>
-          <li><a href="#">Sobre Nós</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Siga-nos</h4>
-        <div class="social-links">
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
-
-    </div>
-    <hr>
-    <div class="footer-bottom">
-      <p>&copy; 2026 HelpyFast. Todos os direitos reservados.</p>
-    </div>
-  </div>
-</footer>
-
-</body>
-
-</html>
+    });
+    </script>
+ 
 </body>
 </html>

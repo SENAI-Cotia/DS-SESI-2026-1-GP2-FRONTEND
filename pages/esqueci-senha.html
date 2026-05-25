@@ -5,64 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esqueci minha senha</title>
 </head>
-<link rel="stylesheet" href="../CSS/cadastros.css">
+<link rel="stylesheet" href="/style/esqueci-senha.css">
 <body>
     <div class="container">
         <div class="card">
-            <div class="robo"><img src="../IMG/robo-img.svg" alt="robo"></div>
-            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
-
+            <div class="robo"><img src="/IMG/imgrobo.png" alt="robo"></div>
+            <div class="logo"><img src="/svg/logo-helpyfast.svg" alt="logo"></div>
+ 
             <h3>Login</h3>
             <h4>Esqueci minha senha</h4>
-
+ 
             <div class="card-inform">
-
+ 
                 <!-- IDENTIFICA DE QUEM É A CONTA -->
             <div class="input-grupo">
                 <h5>E-mail da sua conta</h5>
                 <input type="email" id="email-recuperado" placeholder="Insira o email cadastrado">
             </div>
-
+ 
             <div class="input-grupo">
                <h5>Crie uma nova senha</h5>
                <div class="senha-container">
                     <input type="password" id="senha" placeholder="Crie uma nova senha">
-
+ 
                     <span class="olhinho" onclick="toggleSenha()">
                         <!-- Adicionando id="iconeOlho" -->
-                        <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                        <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                     </span>
                 </div>
             </div>
-
+ 
             <ul class="regras-senha">
                 <li id="regra-caracteres">Deve ter no mínimo 8 caracteres</li>
                 <li id="regra-maiuscula">Pelo menos uma letra maiúscula</li>
                 <li id="regra-numero">Pelo menos um número</li>
                 <li id="regra-especial">Pelo menos um caracter especial (ex: !, @, #, &...)</li>
             </ul>
-
+ 
             <p id="aviso-senha-antiga" style="display: none; color: #dc3545; font-size: 12px; font-weight: bold; margin-bottom: 10px;">
                 ⚠️ Esta já é sua senha atual. Escolha uma nova!
             </p>
-
+ 
             <div class="input-grupo">
                 <h5>Confirme sua nova senha</h5>
                 <div class="senha-container">
                 <input type="password" id="senha-igual" placeholder="Confirme sua nova senha">
-
+ 
                 <span class="olhinho" onclick="toggleConfirmar()">
                     <!-- Adicionando id="iconeOlho" -->
-                    <img src="../IMG/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
+                    <img src="/svg/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
                 </span>
                 </div>
             </div>
-            
+           
             <button class="botao-continuar" id="btnContinuar">Continuar</button>
-
+ 
         </div>
     </div>
-
+ 
     <!-- JAVA SCRIPT -->
     <script>
             // 1. INFORMAÇÕES GERAIS
@@ -72,47 +72,47 @@
             const iconeVer = document.querySelector('#iconeVer');
             const btnContinuar = document.querySelector('#btnContinuar');
             const avisoSenhaAntiga = document.querySelector('#aviso-senha-antiga');
-
+ 
             let senhaValida = false; // Começa como falso
-
-
+ 
+ 
             //2. VISUALIZAÇÃO DA SENHA / OLHINHO
             function toggleSenha() {
                 if (inputSenha.type === 'password') {
                     inputSenha.type = 'text'; // mostra a senha
-                    iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                    iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
                 } else {
                     inputSenha.type = 'password'; // Esconde a senha
-                    iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                    iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
                 }
              }
-
+ 
            function toggleConfirmar() {
                 if (inputConfirmar.type === 'password') {
                     inputConfirmar.type = 'text'; // mostra a senha
-                    iconeVer.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                    iconeVer.src = "/svg/mostrar-senha.svg"; //troca o ícone
                 } else {
                     inputConfirmar.type = 'password'; // Esconde a senha
-                    iconeVer.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                    iconeVer.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
                 }
              }
-
+ 
             // 3. Função para verificar se a nova senha é igual à salva no "banco"
            function verificarSenhaAntiga() {
                 const senhaNova = inputSenha.value;
-                
+               
                 // Como estamos no front-end simulado, checamos contra a última senha cadastrada globalmente de teste
                 const senhaAntigaSalva = localStorage.getItem('senhaCadastrada');
-                
+               
                 if (senhaAntigaSalva && senhaNova === senhaAntigaSalva && senhaNova !== "") {
                     exibirAvisoSenhaAntiga(true);
                     return true;
                 }
-                
+               
                 exibirAvisoSenhaAntiga(false);
                 return false;
             }
-
+ 
             function exibirAvisoSenhaAntiga(mostrar) {
                 if (mostrar) {
                     avisoSenhaAntiga.style.display = 'block';
@@ -123,39 +123,39 @@
                     btnContinuar.style.opacity = "1";
                     btnContinuar.style.pointerEvents = "auto";
                 }
-            }   
-
+            }  
+ 
         // 4. VALIDANDO EM TEMPO REAL DA CRIAÇÃO DA SENHA
         inputSenha.addEventListener('input', () => {
             const valor = inputSenha.value;
-
+ 
             const regras = {
                 caracteres: valor.length >= 8,
                 maiuscula: /[A-Z]/.test(valor),
                 numero: /[0-9]/.test(valor),
                 especial: /[!@#$%&*(),.:{}|<>_-]/.test(valor)
             };
-            
+           
             // ATUALIZA O VISUAL DAS REGRAS
             atualizarVisualRegra('regra-caracteres', regras.caracteres);
             atualizarVisualRegra('regra-maiuscula', regras.maiuscula);
             atualizarVisualRegra('regra-numero', regras.numero);
             atualizarVisualRegra('regra-especial', regras.especial);
-
+ 
             // VÊ SE TODAS AS REGRAS FORAM ATINGIDAS & SE NÃO É A SENHA ANTIGA
             const todasRegrasAtendidas = Object.values(regras).every(v => v === true);
             const eSenhaAntiga = verificarSenhaAntiga(); // chama a função do item 3
-
+ 
             senhaValida = todasRegrasAtendidas && !eSenhaAntiga;
-
+ 
             //Sempre que mudar a senha principal, vê se ela é igual a confirmação
             validarCoincidencia();
         });
-
+ 
             // *ESTUDAR E PROCURAR ENTENDER ESSE PEDAÇO DEPOIS
             function atualizarVisualRegra(id, ehValido) {
                 const elemento = document.getElementById(id);
-                if (elemento) { // vê se o elemento existe para não dar erro 
+                if (elemento) { // vê se o elemento existe para não dar erro
                     if (ehValido) {
                         elemento.classList.add('valido');
                     } else {
@@ -163,7 +163,7 @@
                     }
                 }
             }
-
+ 
         // 5. COR NA BORDA DO CAMPO DE CONFIRMAÇÃO
         function validarCoincidencia() {
             if (inputConfirmar.value.length > 0) {
@@ -176,39 +176,39 @@
                  inputConfirmar.style.borderColor = "#7463F6"; // Volta a cor padrão (roxo)
             }
         }
-
+ 
         inputConfirmar.addEventListener('input', validarCoincidencia);
-
+ 
         // 6. FINALIZAÇÃO E SALVAMENTO
         btnContinuar.addEventListener('click', (event) => {
             event.preventDefault();
-
+ 
             const inputEmail = document.querySelector('#email-recuperado');
-
+ 
             // a. Verifica campos vazios
             if (inputEmail.value === '' || inputSenha.value === '' || inputConfirmar.value === '') {
                 alert("Por favor, preencha todos os campos.");
                 return;
             }
-
+ 
             // b. Verifica se a senha atende aos requisitos de segurança
             if (!senhaValida) {
                 alert("A senha não atende a todos os requisitos de segurança.");
                 return;
             }
-
+ 
             // c. Verifica se as duas senhas são iguais
             if (inputSenha.value !== inputConfirmar.value) {
                 alert("As senhas não coincidem. Verifique os campos.");
                 return;
             }
-
+ 
             // d. Salva a nova senha no localStorage (Simulação de Banco de Dados)
             localStorage.setItem('senhaCadastrada', inputSenha.value);
             alert("Senha alterada com sucesso!");
-
+ 
             // e. Redireciona para a próxima tela (Exemplo: tela de login)
-            window.location.href = "acesso.html"; 
+            window.location.href = "/pages/login.html";
          });
     </script>
 </body>
