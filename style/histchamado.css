@@ -148,7 +148,7 @@ input {
 }
 
 .ticket-card {
-    border: 1px solid #E5E7EB;
+    border: 1px solid #ebe5e8;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
@@ -319,4 +319,7 @@ hr {
   .footer-col {
     margin-bottom: 40px;
   }
+}
+.dept-SIM{
+    color: red;
 }
