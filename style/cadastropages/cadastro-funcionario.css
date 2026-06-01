@@ -8,8 +8,8 @@
  
 .container {
     display: flex;
-    align-items: center; /* alinha a altura*/
-    justify-content: center;  /* alinha a largura*/
+    align-items: center; 
+    justify-content: center;  
       min-height: 100vh;
     background: linear-gradient(550deg, #2E1A78, #4F46E5, #3354A4);
 }
@@ -105,7 +105,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 8px; /*espaço entre o ícone e o texto*/
+    gap: 8px; 
     color: #2E1A78;
     font-size: 14px;
     margin-bottom: 8px;
@@ -137,8 +137,8 @@ select {
     background-color: #f9f9fb;
     color: #9a9a9a;
     cursor: pointer;
-    appearance: none; /* tira a seta "v" feia do google para estilizar*/
-    -webkit-appearance: none; /* remove a edição padrão dos navegadores*/
+    appearance: none;
+    -webkit-appearance: none; 
 }
  
 .passos {
@@ -182,20 +182,20 @@ select {
 }
  
 .botao-continuar:active {
-    transform: scale(0.95); /* Diminui para 95% do tamanho original, efeito click */
+    transform: scale(0.95); 
 }
  
-/* CADASTRO - CRIAR SENHA*/
+
 .senha-container {
-   position: relative;  /* deixa o icone (olhinho) flutuar dentro do campo de inserir a senha */
+   position: relative; 
     width: 100%;
 }
  
 .olhinho {
     position: absolute;
-    right: 15px; /* distancia da borda direita */
-    top: 56%; /*centraliza na vertical*/
-    transform: translateY(-50%); /* alinha */
+    right: 15px; 
+    top: 56%; 
+    transform: translateY(-50%); 
     cursor: pointer;
     user-select: none;
     font-size: 18px;
@@ -206,7 +206,7 @@ select {
     height: auto;
 }
  
-/* Não deixa o texto da senha ficar por cima do olhinho - da um limite ao texto*/
+
 .senha-container {
     position: relative;
     width: 100%;
@@ -216,9 +216,9 @@ select {
  
 .olhinho {
     position: absolute;
-    right: 15px; /* distancia da borda direita */
-    top: 56%; /*centraliza na vertical*/
-    transform: translateY(-50%); /* alinha */
+    right: 15px; 
+    top: 56%; 
+    transform: translateY(-50%); 
     cursor: pointer;
     user-select: none;
     font-size: 18px;  
@@ -229,7 +229,7 @@ select {
     height: auto;
 }
  
-/* Não deixa o texto da senha ficar por cima do olhinho - da um limite ao texto*/
+
 .senha-container input {
     padding-right: 45px;
 }
@@ -253,7 +253,7 @@ select {
     align-items: center;
 }
  
-/* Adiciona um ✅ nas regras aplicadas */
+
 .regras-senha li::before {
     content: "•";
     color: #9a9a9a;
@@ -274,7 +274,7 @@ select {
     font-size: 12px;
 }
  
-/* ACESSO */
+
 .finalizando {
     color: #7c7b7b;
     text-align: center;
@@ -283,9 +283,7 @@ select {
     margin: 5px;
 }
  
-/* ESQUECI MINHA SENHA */
- 
-/* Animação de aparecer suavemente */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }

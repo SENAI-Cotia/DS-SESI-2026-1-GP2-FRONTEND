@@ -107,8 +107,7 @@ nav a {
   display: none;
 }
 
-/* has serve para evitar o javascript, vc pd estilizar
-  coisas que estao dentro dele, o radio invisivel é marcado como :checked e muda a estilização */
+
 
 .card:has(.radio-card:checked) {
   background-color: #F5F3FF;
@@ -213,9 +212,8 @@ select {
   color: #d1d5d8;
   cursor: pointer;
   appearance: none;
-  /* tira a seta "v" feia do google para estilizar*/
   -webkit-appearance: none;
-  /* remove a edição padrão dos navegadores*/
+  
 }
 
 .localizacion {
@@ -236,7 +234,7 @@ select {
 
 .card-container {
     max-width: 900px;
-    margin: 50px auto; /* centraliza + afasta da navbar */
+    margin: 50px auto; 
     border-radius: 20px;
     overflow: hidden; /* importante pro topo arredondado funcionar */
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
@@ -336,29 +334,28 @@ hr {
   }
 }
 
-/* Fundo escurecido que cobre toda a tela */
 .modal-overlay {
-    display: none; /* Escondido por padrão */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Cor escura transparente */
-    backdrop-filter: blur(4px); /* Efeito de desfoque no fundo (opcional) */
-    z-index: 1000; /* Garante que fique acima de tudo */
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(4px); 
+    z-index: 1000; 
     justify-content: center;
     align-items: center;
 }
 
-/* Classe que vamos usar no JavaScript para mostrar o modal */
+
 .modal-overlay.active {
     display: flex;
 }
 
-/* A caixa branca/roxa do pop-up */
+
 .modal-content {
-    background-color: #2E1A78; /* Tom de roxo/cinza do seu layout */
+    background-color: #2E1A78; 
     color: white;
     padding: 30px;
     border-radius: 20px;
@@ -369,7 +366,7 @@ hr {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Botão de fechar (X) */
+
 .close-button {
     position: absolute;
     top: 15px;
@@ -379,12 +376,11 @@ hr {
     color: white;
 }
 
-/* Ícone de sucesso centralizado */
 .success-icon {
     margin-bottom: 20px;
 }
 
-/* Botão roxo de dentro do modal */
+
 .btn-primary {
     background: linear-gradient(90deg, #7C3AED, #4F46E5);
     color: white;

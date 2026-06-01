@@ -114,11 +114,14 @@
     transform: scale(0.95);
 }
 
-.nao-sei-um-nome{
+.alinhando-botao{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .direita {
@@ -135,9 +138,9 @@
   padding: 20px;
   height: auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-
-
+  width: 55%;
+  justify-content: center;
+  margin: auto;
 }
 
 .card-small h3 {

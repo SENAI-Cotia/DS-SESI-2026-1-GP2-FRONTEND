@@ -1,16 +1,15 @@
- 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Técnico</title>
+    <title>Cadastro Funcionário</title>
 </head>
-<link rel="stylesheet" href="/style/cadastro-tecnico.css">
+<link rel="stylesheet" href="/style/cadastropages/cadastro-funcionario.css">
 <body>
         <div class="container">
         <div class="card">
-            <div class="robo"><img src="/svg/robo-img.svg" alt="robo"></div>
+            <div class="robo"><img src="/IMG/imgrobo.png" alt="robo"></div>
             <div class="logo"><img src="/svg/logo-helpyfast.svg" alt="logo"></div>
  
             <h3>Cadastro</h3>
@@ -28,14 +27,22 @@
  
             <div class="input-grupo">
                 <h5>
-                    <img src="/svg/especialidade-img.svg" alt="especialidade" class="icon-h5">
-                    Especialidade do Técnico
+                    <img src="/svg/data-img.svg" alt="data" class="icon-h5">
+                    Data de nascimento
                 </h5>
-                <select name="especialidade" id="especialidade">
-                    <option value="" disabled selected>Selecione a Especialidade</option>
-                    <option value="manutencao">Manutenção</option>
+                <input type="date" id="data" placeholder="Insira sua data de nascimento">
+            </div>
+ 
+            <div class="input-grupo">
+                <h5>
+                    <img src="/svg/area-img.svg" alt="area" class="icon-h5">
+                    Área do Funcionário
+                </h5>
+                <select name="area" id="area">
+                    <option value="" disabled selected>Selecione a Área</option>
+                    <option value="adm">Administração</option>
                     <option value="ti">T.I</option>
-                    <option value="geral">Geral</option>
+                    <option value="producao">Produção</option>
                 </select>
             </div>
            
@@ -56,16 +63,17 @@
             event.preventDefault();
  
             const email = document.querySelector('#email').value;
-            const especialidade = document.querySelector('#especialidade').value;
+            const data = document.querySelector('#data').value;
+            const area = document.querySelector('#area').value;
  
-            if (email === '' || especialidade === '') {
+            if (email === '' || data === '' || area === '') {
                 alert("Ops! Preencha todos os campos para entrar.");
-                return;
+                return; // Bloqueia o avanço
             }
  
             localStorage.setItem('emailEmCadastro', email);
  
-            window.location.href = "/pages/criar-senha.html"
+            window.location.href = "/pages/criar-senha.html";
         });
     </script>
  
