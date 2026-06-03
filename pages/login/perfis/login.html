@@ -156,9 +156,15 @@
            
             // DICA: Você pode mudar o redirecionamento dependendo do perfil se quiser
             if (tipoIdentificado === 'adm') {
-                window.location.href = "/pages/homeadm.html"; // Página do administrador
+                window.location.href = "/pages/homepages/homeadm.html"; // Página do administrador
+            } else if (tipoIdentificado === 'funcionario') {
+                window.location.href = "/pages/homepages/homefuncionario.html"; // Página funcionario
+            } else if (tipoIdentificado === 'tecnico') {
+                 window.location.href = "/pages/homepages/hometecnico.html";
             } else {
-                window.location.href = "/pages/home.html"; // Página comum
+            // Caso aconteça algum erro e o tipo venha vazio ou inválido
+                console.error("Tipo de usuário não reconhecido:", tipoIdentificado);
+                alert("Erro ao identificar o tipo de perfil.");
             }
         }
         
