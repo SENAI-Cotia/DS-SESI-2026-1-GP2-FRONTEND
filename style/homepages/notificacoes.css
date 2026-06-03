@@ -39,3 +39,97 @@
      background: white;
      border-radius: 50%;
  }
+
+ .title-box {
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #2E1A78, #4F46E5);
+    color: white;
+    padding: 15px;
+    border-radius: 20px 20px 0 0 ;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.back-arrow {
+    position: absolute;
+    left: 25px;
+    cursor: pointer;
+}
+
+
+.notificacoes{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.painel-notificacao{
+    width:700px;
+}
+
+.titulo{
+    background:linear-gradient(90deg,#2E1A78,#4F46E5);
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.notificacao{
+    margin-top:15px;
+    background:white;
+    border:1px solid #bca8ff;
+    border-radius:8px;
+    padding:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.notificacao img{
+    width:60px;
+    height:60px;
+    border-radius:5px;
+    object-fit:cover;
+}
+
+.info h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.info p{
+    font-size:12px;
+    color:#666;
+}
+
+.info span{
+    font-size:11px;
+    color:#999;
+}
+
+.concluido h3{
+    color:#00b050;
+}
+
+.cancelado h3{
+    color:#ff2d2d;
+}
+
+.icone{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#6D28D9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:20px;
+}
