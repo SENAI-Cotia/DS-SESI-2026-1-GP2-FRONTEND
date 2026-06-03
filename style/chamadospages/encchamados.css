@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: #2E1A78;
+}
+
+.logo img {
+    height: 45px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+}
+
+.card-container {
+    width: 700px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.title-box {
+    width: 100%;
+    background: linear-gradient(90deg, #2E1A78, #4F46E5);
+    color: white;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.back-arrow {
+    position: absolute;
+    left: 25px;
+    cursor: pointer;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-big {
+    width: 100%;
+    padding: 40px;
+    border: 1px solid #7B5BF2 !important; 
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-big h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2E1A78;
+    margin-bottom: 5px;
+}
+
+.linha-subinfo {
+    width: 100%;
+    border-bottom: 1px solid #7B5BF2 !important;
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+}
+
+.lado-a-lado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.data-hora {
+    color: #9A9A9A;
+    font-size: 13px;
+}
+
+.funcionario {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 13px;
+    color: #9A9A9A;
+    font-weight: normal;
+}
+
+.descricao-chamado {
+    color: #4A4A4A;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.alinhando {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.alinhando img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+/* CONTAINER PRINCIPAL DOS CARDS DE BAIXO */
+.container-escolher {
+    width: 700px;         
+    margin: 40px auto;    
+    padding: 0;           
+}
+
+.container-escolher h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+}
+
+.enviar-chamado {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;          
+}
+
+/* CONFIGURAÇÃO BASE DOS CARDS DE FUNCIONÁRIOS */
+.enviar-claudio, .enviar-sinco {
+    border: 1px solid rgba(87, 87, 87, 0.08);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06); 
+    padding: 14px 24px;   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.enviar-claudio img, .enviar-sinco img {
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    margin-right: 14px;
+    object-fit: cover;
+}
+
+.bloco-esquerdo {
+    display: flex;
+    align-items: center;
+}
+
+.info-user h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.info-user p {
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: #9A9A9A;
+}
+
+/* ESTILIZAÇÃO DAS BOLINHAS (PADRÃO DESMARCADO) */
+.check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    background-color: #ffffff; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;       
+    box-sizing: border-box;
+}
+
+.simbolo-check {
+    font-size: 11px;
+    color: white !important;
+    font-weight: bold;
+    display: none; /* Escondido por padrão */
+}
+
+/* Ativa a bolinha verde */
+.selecionado .check {
+    background-color: #4cd964 !important;
+    border-color: #4cd964 !important;
+}
+
+/* Mostra o símbolo de check branco */
+.selecionado .simbolo-check {
+    display: block !important;
+}
+
+/* Muda sutilmente a borda do card selecionado */
+.selecionado {
+    border-color: rgba(76, 217, 100, 0.4) !important;
+}
+
+/* CONFIGURAÇÃO DO SELETOR DE URGÊNCIA */
+.urgencia-container {
+    margin: 30px 0 50px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.input-urgencia {
+    width: 18px;
+    height: 18px;
+    accent-color: #2E1A78; 
+    cursor: pointer;
+}
+
+.urgencia-container label {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* FOOTER TOTALMENTE ESTILIZADO */
+.footer {
+    background: #2E1A78;
+    padding: 50px 0 30px 0;
+    width: 100%;
+    color: white;
+}
+
+.container-footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-col h4 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-col.sobre p {
+    font-size: 13px;
+    color: #d1cbe5;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+.footer-col.links ul {
+    list-style: none;
+}
+
+.footer-col.links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col.links ul li a {
+    color: #d1cbe5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-col.links ul li a:hover {
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    padding: 8px 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.social-links a:hover {
+    background: white;
+    color: #2E1A78;
+    border-color: white;
+}
+
+.footer-linha {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 40px 0 20px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    color: #b3a9d2;
+}

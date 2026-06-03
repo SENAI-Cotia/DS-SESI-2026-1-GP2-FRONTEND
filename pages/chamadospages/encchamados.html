@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encaminhar chamados</title>
+    <link rel="stylesheet" href="/style/chamadospages/encchamados.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/IMG/logonavbar.png" alt="Helpy Fast">
+        </div>
+        <nav>
+            <a href="/pages/homepages/homeadm.html" class="nav-home">HOME</a>
+            <a href="/pages/chamadospages/histchamado.html">CHAMADOS</a>
+            <img class="user" src="/svg/iconperfil.svg" alt="perfil">
+        </nav>
+    </header>
+
+    <div class="card-container">
+        <div class="title-box">
+            <a href="/pages/home.html" class="back-arrow">
+                <img src="/svg/iconsetaleft.svg" alt="seta retornando">
+            </a>
+            <span class="titulo">Encaminhar chamados</span>
+        </div>
+
+        <div class="card-big">
+            <div class="chamados">
+                <h4>Máquina com defeito</h4>
+
+                <div class="lado-a-lado">
+                    <h5>Oficina 12</h5>
+                    <h5>Produção</h5>
+                </div>
+
+                <div class="linha-subinfo"></div>
+
+                <div class="alinhando">
+                    <img src="/IMG/maquinaq.png" alt="máquina quebrada">
+                </div>
+
+                <h5 class="descricao-chamado">A máquina da oficina não está ligando, e suas engrenagens não rodam</h5>
+
+                <br>
+
+                <div class="lado-a-lado">
+                    <span class="funcionario">Funcionário: Gustavo</span>
+                    <span class="data-hora">09 de abril, 08:23hr</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-escolher">
+        <h3>Enviar chamado para:</h3>
+
+        <div class="enviar-chamado">
+            <!-- CARD CLAUDIO (Começa selecionado com a classe 'marcado') -->
+            <div class="enviar-claudio selecionado" onclick="selecionarFuncionario(this)">
+                <div class="bloco-esquerdo">
+                    <img src="/IMG/claudiorocha.png" alt="selecionar claudio" class="foto-perfil">
+                    <div class="info-user">
+                        <h4>Cláudio Rocha</h4>
+                        <p>Manutenção</p>
+                    </div>
+                </div>
+                
+                <div class="check">
+                    <span class="simbolo-check">✓</span>
+                </div>
+            </div>
+
+            <!-- CARD SINCO -->
+            <div class="enviar-sinco" onclick="selecionarFuncionario(this)">
+                <div class="bloco-esquerdo">
+                    <img src="/IMG/sincoEmi.png" alt="selecionar Sinco" class="foto-perfil">
+                    <div class="info-user">
+                        <h4>Sinco Emi</h4>
+                        <p>Manutenção</p>
+                    </div>
+                </div>
+
+                <div class="check">
+                    <span class="simbolo-check">✓</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opção de urgência -->
+        <div class="urgencia-container">
+            <input type="checkbox" id="urgente" class="input-urgencia"> 
+            <label for="urgente">O chamado deve ser atendido com urgência?</label>
+        </div>
+    </div>
+        
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="footer-row">
+                <div class="footer-col sobre">
+                    <h4>HelpyFast</h4>
+                    <p>Criando uma comunicação digital para facilitar o seu dia a dia dentro do seu ambiente de trabalho.</p>
+                </div>
+
+                <div class="footer-col links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Serviços</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col redes">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-linha">
+            <div class="footer-bottom">
+                <p>&copy; 2026 HelpyFast. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- JS -->
+    <script>
+    function selecionarFuncionario(cardClicado) {
+        // Remove a classe 'selecionado' de todos os cards de funcionários
+        document.querySelectorAll('.enviar-claudio, .enviar-sinco').forEach(card => {
+            card.classList.remove('selecionado');
+        });
+    
+        // Adiciona a classe 'selecionado' apenas no card que recebeu o clique
+     cardClicado.classList.add('selecionado');
+}
+</script>
+
+</body>
+</html>
