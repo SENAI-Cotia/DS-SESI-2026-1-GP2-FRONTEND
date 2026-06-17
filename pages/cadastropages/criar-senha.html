@@ -9,8 +9,8 @@
 <body>
         <div class="container">
         <div class="card">
-            <div class="robo"><img src="/IMG/robo-img.svg" alt="robo"></div>
-            <div class="logo"><img src="/IMG/logo-helpyfast.svg" alt="logo"></div>
+            <div class="robo"><img src="/svg/robo-img.svg" alt="robo"></div>
+            <div class="logo"><img src="/svg/logo-helpyfast.svg" alt="logo"></div>
 
             <h3>Cadastro</h3>
             <h4>Crie sua senha</h4>
@@ -24,7 +24,7 @@
 
                     <span class="olhinho" onclick="toggleSenha()">
                         <!-- Adicionando id="iconeOlho" -->
-                        <img src="/IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                        <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                     </span>
                 </div>
             </div>
@@ -43,12 +43,12 @@
 
                 <span class="olhinho" onclick="toggleConfirmar()">
                     <!-- Adicionando id="iconeOlho" -->
-                    <img src="/IMG/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
+                    <img src="/svg/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
                 </span>
                 </div>
             </div>
             
-            <a href="../HTML/acesso.html"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
+            <a href="/pages/cadastropages/acesso.html"><button class="botao-continuar" id="btnContinuar">Continuar</button></a>
 
             <!-- bolinhas de navegação "Pagination Dots ou Steppers" -->
              <div class="passos">
@@ -74,20 +74,20 @@
             function toggleSenha() {
                 if (inputSenha.type === 'password') {
                     inputSenha.type = 'text'; // mostra a senha
-                    iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                    iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
                 } else {
                     inputSenha.type = 'password'; // Esconde a senha
-                    iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                    iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
                 }
         }
 
            function toggleConfirmar() {
                 if (inputConfirmar.type === 'password') {
                     inputConfirmar.type = 'text'; // mostra a senha
-                    iconeVer.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                    iconeVer.src = "/svg/mostrar-senha.svg"; //troca o ícone
                 } else {
                     inputConfirmar.type = 'password'; // Esconde a senha
-                    iconeVer.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                    iconeVer.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
                 }
         }
 
@@ -152,7 +152,7 @@ document.querySelector('#btnContinuar').addEventListener('click', function(event
 
     if (!emailVinculado) {
         alert("Erro: nenhum e-mail foi encontrado. Tente novamente.");
-        window.location.href = "../HTML/cadastro-funcionario.html";
+        window.location.href = "/pages/cadastropages/cadastro-funcionario.html";
         return;  
     }
 
@@ -165,7 +165,7 @@ document.querySelector('#btnContinuar').addEventListener('click', function(event
     alert("Usuário cadastrado com sucesso!");
 
     // vai para pág. de login para testar o acesso
-    window.location.href = "../HTML/index.html";
+    window.location.href = "/pages/loginpages/login.html";
 });
     </script>
 

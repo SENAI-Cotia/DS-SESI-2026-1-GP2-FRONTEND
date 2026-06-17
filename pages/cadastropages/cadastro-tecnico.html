@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Técnico</title>
 </head>
-<link rel="stylesheet" href="../CSS/cadastros.css">
+<link rel="stylesheet" href="/style/cadastropages/cadastros.css">
 <body>
         <div class="container">
         <div class="card">
-            <div class="robo"><img src="../IMG/robo-img.svg" alt="robo"></div>
-            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
+            <div class="robo"><img src="/svg/robo-img.svg" alt="robo"></div>
+            <div class="logo"><img src="/svg/logo-helpyfast.svg" alt="logo"></div>
 
             <h3>Cadastro</h3>
             <h4>Informe os dados do funcionário</h4>
@@ -19,7 +19,7 @@
 
             <div class="input-grupo">
                 <h5>
-                    <img src="../IMG/user-img.svg" alt="user" class="icon-h5">
+                    <img src="/svg/user-img.svg" alt="user" class="icon-h5">
                     E-mail
                 </h5>
                 <input type="email" id="email" placeholder="Insira seu email">
@@ -27,7 +27,7 @@
 
             <div class="input-grupo">
                 <h5>
-                    <img src="../IMG/especialidade-img.svg" alt="especialidade" class="icon-h5">
+                    <img src="/svg/especialidade-img.svg" alt="especialidade" class="icon-h5">
                     Especialidade do Técnico
                 </h5>
                 <select name="especialidade" id="especialidade">
@@ -64,7 +64,7 @@
 
             localStorage.setItem('emailEmCadastro', email);
 
-            window.location.href = "../HTML/criar-senha.html"
+            window.location.href = "/pages/cadastropages/criar-senha.html"
         });
     </script>
 

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esqueci minha senha</title>
 </head>
-<link rel="stylesheet" href="../CSS/cadastros.css">
+<link rel="stylesheet" href="/style/cadastropages/criar-senha.css">
 <body>
     <div class="container">
         <div class="card">
-            <div class="robo"><img src="../IMG/robo-img.svg" alt="robo"></div>
-            <div class="logo"><img src="../IMG/logo-helpyfast.svg" alt="logo"></div>
+            <div class="robo"><img src="/svg/robo-img.svg" alt="robo"></div>
+            <div class="logo"><img src="/svg/logo-helpyfast.svg" alt="logo"></div>
 
             <h3>Login</h3>
             <h4>Esqueci minha senha</h4>
@@ -30,7 +30,7 @@
 
                     <span class="olhinho" onclick="toggleSenha()">
                         <!-- Adicionando id="iconeOlho" -->
-                        <img src="../IMG/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
+                        <img src="/svg/ocultar-senha.svg" id="iconeOlho" alt="olhinho ocultar senha">
                     </span>
                 </div>
             </div>
@@ -53,7 +53,7 @@
 
                 <span class="olhinho" onclick="toggleConfirmar()">
                     <!-- Adicionando id="iconeOlho" -->
-                    <img src="../IMG/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
+                    <img src="/svg/ocultar-senha.svg" id="iconeVer" alt="olhinho ocultar senha">
                 </span>
                 </div>
             </div>
@@ -80,20 +80,20 @@
             function toggleSenha() {
                 if (inputSenha.type === 'password') {
                     inputSenha.type = 'text'; // mostra a senha
-                    iconeOlho.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                    iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
                 } else {
                     inputSenha.type = 'password'; // Esconde a senha
-                    iconeOlho.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                    iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
                 }
              }
 
            function toggleConfirmar() {
                 if (inputConfirmar.type === 'password') {
                     inputConfirmar.type = 'text'; // mostra a senha
-                    iconeVer.src = "../IMG/mostrar-senha.svg"; //troca o ícone
+                    iconeVer.src = "/svg/mostrar-senha.svg"; //troca o ícone
                 } else {
                     inputConfirmar.type = 'password'; // Esconde a senha
-                    iconeVer.src = "../IMG/ocultar-senha.svg"; // Volta o ícone inicial
+                    iconeVer.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
                 }
              }
 
@@ -208,7 +208,7 @@
             alert("Senha alterada com sucesso!");
 
             // e. Redireciona para a próxima tela (Exemplo: tela de login)
-            window.location.href = "acesso.html"; 
+            window.location.href = "/pages/cadastropages/acesso.html"; 
          });
     </script>
 </body>
