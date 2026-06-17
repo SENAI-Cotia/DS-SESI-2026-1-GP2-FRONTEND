@@ -20,6 +20,14 @@
             <div class="input-grupo">
                 <h5>
                     <img src="/svg/user-img.svg" alt="user" class="icon-h5">
+                    Nome
+                </h5>
+                <input type="text" id="nome" placeholder="Insira seu nome">
+            </div>
+
+            <div class="input-grupo">
+                <h5>
+                    <img src="/svg/user-img.svg" alt="user" class="icon-h5">
                     E-mail
                 </h5>
                 <input type="email" id="email" placeholder="Insira seu email">
@@ -28,13 +36,12 @@
             <div class="input-grupo">
                 <h5>
                     <img src="/svg/especialidade-img.svg" alt="especialidade" class="icon-h5">
-                    Especialidade do Técnico
+                    Funcionário ou Técnico
                 </h5>
                 <select name="especialidade" id="especialidade">
                     <option value="" disabled selected>Selecione a Especialidade</option>
-                    <option value="manutencao">Manutenção</option>
-                    <option value="ti">T.I</option>
-                    <option value="geral">Geral</option>
+                    <option value="funcionario">Funcionário</option>
+                    <option value="tecnico">Técnico</option>
                 </select>
             </div>
             
@@ -51,21 +58,7 @@
 
     <!-- JAVA SCRIPT -->
     <script>
-        document.querySelector('#btnContinuar').addEventListener('click', function(event) {
-            event.preventDefault();
-
-            const email = document.querySelector('#email').value;
-            const especialidade = document.querySelector('#especialidade').value;
-
-            if (email === '' || especialidade === '') {
-                alert("Ops! Preencha todos os campos para entrar.");
-                return;
-            }
-
-            localStorage.setItem('emailEmCadastro', email);
-
-            window.location.href = "/pages/cadastropages/criar-senha.html"
-        });
+       
     </script>
 
 </body>

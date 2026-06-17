@@ -245,8 +245,10 @@ hr {
 }
 
 .esqueci {
+    display: block;
+    text-align: left;
     color: #6A35B5;
-    font-size: 10px;
+    font-size: 12px;
     text-decoration: none;
     font-weight: 500;
 }
