@@ -102,5 +102,5 @@ document.querySelector('#btnContinuar').addEventListener('click', function(event
     alert("Usuário cadastrado com sucesso!");
 
     // vai para pág. de login para testar o acesso
-    window.location.href = "/pages/loginpages/login.html";
+    window.location.href = "/pages/cadastropages/acesso.html";
 });
