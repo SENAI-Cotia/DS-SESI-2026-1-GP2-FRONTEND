@@ -26,7 +26,6 @@
         const emailSalvo = localStorage.getItem('emailLembrado');
         if (emailSalvo) {
             inputEmail.value = emailSalvo;
-            checkLembrar.checked = true;
         }
 
         // ALTERADO: Agora busca a escolha salva no localStorage pela tela anterior
@@ -60,7 +59,7 @@
 
         let loginValido = false;
 
-        // CORREÇÃO: Validação rigorosa por perfil selecionado
+        // Validação rigorosa por perfil selecionado
         if (tipoIdentificado === 'adm') {
             const emailAdmFixo = "adm@helpyfast.com";
             const senhaAdmFixa = "Adm.1234";
@@ -86,19 +85,13 @@
 
         // Se o login for válido, finaliza o processo
         if (loginValido) {
-            if (checkLembrar.checked) {
-                localStorage.setItem('emailLembrado', email);
-            } else {
-                localStorage.removeItem('emailLembrado');
-            }
             
             console.log(`Dados enviados: Email: ${email}, Tipo de Usuario: ${tipoIdentificado}`);
 
             alert("Login realizado com sucesso. Bem-vindo(a)!");
             
-            // DICA: Você pode mudar o redirecionamento dependendo do perfil se quiser
             if (tipoIdentificado === 'adm') {
-                window.location.href = "dashboard_adm.html"; // Página do administrador
+                window.location.href = "/pages/homepages/home.html"; // Página do administrador
             } else {
                 window.location.href = "/pages/homepages/home.html"; // Página comum
             }

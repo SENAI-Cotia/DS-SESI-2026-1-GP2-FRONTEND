@@ -13,7 +13,6 @@
     justify-content: center;  /* alinha a largura*/
     min-height: 100vh;
     background: linear-gradient(550deg, #2E1A78, #4F46E5, #3354A4);
-  
 }
  
 .card {
@@ -65,6 +64,7 @@ h4 {
 }
 
 input {
+  margin-bottom: 2px;
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -138,7 +138,7 @@ input:focus {
 }
 
 .container {
-  max-width: 1100px;
+
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -221,6 +221,7 @@ hr {
   .footer-col {
     margin-bottom: 40px;
   }
+}
 /* OPÇÕES EXTRAS - tudo na "mesma linha" */
 .mais-opcoes {
     display: flex;
@@ -252,5 +253,4 @@ hr {
     font-size: 12px;
     text-decoration: none;
     font-weight: 500;
-}
 }

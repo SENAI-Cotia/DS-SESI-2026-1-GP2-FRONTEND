@@ -1,4 +1,6 @@
 /* HOME ADM */
+.home-ADM {
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
  
  * {
@@ -140,6 +142,7 @@
   width: 55%;
   justify-content: center;
   margin: auto;
+  margin-bottom: 50px;
 }
  
 .card-small h3 {
@@ -253,8 +256,486 @@ hr {
   font-family: Arial, Helvetica, sans-serif;
 }
  
- 
+}
+/* FIM TELA HOME */
+
+
+/* INICIO TELA FUNCIONARIO */
+.home-FUNC {
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #ffffff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: #2E1A78;
+}
+
+.logo img {
+  height: 45px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.user {
+  width: 35px;
+  height: 35px;
+  background: white;
+  border-radius: 50%;
+}
+
+.title-box {
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #2E1A78, #4F46E5);
+    color: white;
+    padding: 18px;
+    border-radius: 20px 20px 0 0;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 25px;
+  cursor: pointer;
+}
+
+
+.subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 30px 0 20px;
+  color: #2E1A78;
+}
+
+.container {
+  width: 850px;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+.label-section {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.categories {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  border: 1px solid #D1D5DB;
+  border-radius: 12px;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.radio-card {
+  display: none;
+}
+
+/* has serve para evitar o javascript, vc pd estilizar
+  coisas que estao dentro dele, o radio invisivel é marcado como :checked e muda a estilização */
+
+.card:has(.radio-card:checked) {
+  background-color: #F5F3FF;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.15);
+}
+
+.card:hover {
+  border-color: #A78BFA;
+}
+
+.card img {
+  width: 45px;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text strong {
+  font-size: 14px;
+  color: #2E1A78;
+}
+
+
+.card-text span {
+  font-size: 12px;
+  color: #9CA3AF;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+}
+
+textarea,
+.input-box {
+  width: 100%;
+  border: 1px solid #D1D5DB;
+  background-color: #F9FAFB;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+}
+
+textarea {
+  height: 180px;
+}
+
+.upload-box {
+  border: 1px solid #D1D5DB;
+  background-color: #F9FAFB;
+  border-radius: 15px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #9CA3AF;
+}
+
+.upload-box img {
+  width: 30px;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+.full-width {
+  margin-top: 25px;
+}
+
+.input-box {
+  height: 80px;
+}
+
+.btn-chamado {
+  display: block;
+  width: 400px;
+  margin: 40px auto;
+  background: #6D28D9;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1.5px solid #D1D5DB;
+  outline: none;
+  font-size: 15px;
+  background-color: #f9f9fb;
+  color: #d1d5d8;
+  cursor: pointer;
+  appearance: none;
+  /* tira a seta "v" feia do google para estilizar*/
+  -webkit-appearance: none;
+  /* remove a edição padrão dos navegadores*/
+}
+
+.localizacion {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+  
+}
+
+.box-big {
+    padding: 40px;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card-container {
+    max-width: 900px;
+    margin: 50px auto; /* centraliza + afasta da navbar */
+    border-radius: 20px;
+    overflow: hidden; /* importante pro topo arredondado funcionar */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+}
+/* FIM TELA FUNCIONARIO */
+
+
+/* INICIO TELA TECNICO */
+.home-TEC {
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #ffffff;
+
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: #2E1A78;
+}
+
+.logo img {
+    height: 45px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+}
+
+
+.card-container {
+    max-width: 1100px; 
+    margin: 40px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.title-box {
+    width: 100%;
+    background: linear-gradient(90deg, #2E1A78, #4F46E5);
+    color: white;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.back-arrow {
+    position: absolute;
+    left: 25px;
+}
+
+.filter-icon {
+    position: absolute;
+    right: 25px;
+    width: 24px;
+}
+
+
+.input-grupo {
+    padding: 25px 30px 10px 30px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    background: #F9FAFB;
+    border-color: #7463F6;
+}
+
+.lupa {
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-20%);
+    cursor: pointer;
+}
+
+
+.filtro {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 30px;
+}
+
+.btn-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border: 1px solid #7463F6;
+    border-radius: 25px;
+    background: #fff;
+    color: #9CA3AF;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-filter img {
+    width: 18px;
+}
+
+.btn-active {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+.btn-filter:hover {
+    background: #eeebff;
+}
+
+
+.tickets-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px 30px 40px 30px;
+}
+
+.ticket-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.ticket-header h3 {
+    font-size: 16px;
+    color: #374151;
+}
+
+.date {
+    font-size: 12px;
+    color: #9CA3AF;
+}
+
+.ticket-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 10px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.open { color: #B45309; }
+.solved { color: #4F46E5; }
+
+.divider {
+    border: 0;
+    border-top: 1px solid #F3F4F6;
+    margin-bottom: 15px;
+}
+
+.ticket-content p {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.desc {
+    color: #9CA3AF;
+    line-height: 1.4;
+    margin-bottom: 15px !important;
+}
+
+@media (max-width: 850px) {
+    .tickets-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+}
+/* FIM TELA TECNICO */
+
+ /* FOOTER  */
+
 .footer {
+  width: px;
   background-color: #2E1A78;
   color: #ffffff;
   padding: 50px 0 20px 0;
@@ -335,7 +816,6 @@ hr {
   color: #888;
 }
  
- 
 @media (max-width: 768px) {
   .footer-row {
     flex-direction: column;
@@ -346,4 +826,4 @@ hr {
     margin-bottom: 40px;
   }
 }
-/* FIM DA TELA HOME ADM */
+/* FIM DO FOOTER */
