@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ 
+.container {
+    display: flex;
+    align-items: center; /* alinha a altura*/
+    justify-content: center;  /* alinha a largura*/
+      min-height: 100vh;
+    background: linear-gradient(550deg, #2E1A78, #4F46E5, #3354A4);
+}
+ 
+.card {
+    background-color: #E6E3FF;
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    /* text-align: center;
+    min-width: 300px;
+    width: 90%;
+    max-width: 550px; */
+}
+
+h5 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 550;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    margin-bottom: 3px;
+    font-style: #7463F6;
+    font-size: 17px;
+}
+
+.logo {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.robo img{
+    position: absolute;
+    width: 170px;
+    height: auto;
+}
+
+.card h3 {
+    text-align: center;
+    height: auto;
+}
+
+.card h4 {
+    color: #9a9a9a;
+    font-weight: 500;
+    text-align: center;
+}
+
+.card-inform {
+    background-color: #FFF;
+    align-items: center;
+    border-radius: 40px;
+    padding: 40px 30px;
+    text-align: center;
+    min-width: 480px;
+    width: 100%;
+    max-width: 480px;
+    margin: 20px auto 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.input-grupo { /* espaço entre as caixas de texto*/
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px; 
+    padding: 12px 15px;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+    border-color: #7463F6;
+}
+
+.input-grupo h5{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px; /*espaço entre o ícone e o texto*/
+    color: #2E1A78;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.icon-h5 {
+    width: 20px;
+    height: auto;
+}
+
+input:focus {
+    border-color: #492eaa;
+    box-shadow: 0 0 5px rgba(79, 70, 229, 0.3);
+}
+
+h5 img {
+    position: relative;
+    height: auto;
+}
+
+
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1.5px solid #7463F6;
+    outline: none;
+    font-size: 15px;
+    background-color: #f9f9fb;
+    color: #9a9a9a;
+    cursor: pointer;
+    appearance: none; /* tira a seta "v" feia do google para estilizar*/
+    -webkit-appearance: none; /* remove a edição padrão dos navegadores*/
+}
+
+.passos {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* espaço entre as bolinas*/
+    margin-top: 25px; /*afasta do botão */
+}
+
+.ponto {
+    width: 10px;
+    height: 10px;
+    background-color: #d0d6dd; /* bolinhas inativas*/
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.ponto-ativo {
+    background-color: #7463F6; 
+    width: 25px; /* deixa a bolinha atual mais comprida*/
+    border-radius: 10px;
+}
+
+.botao-continuar {
+    background: linear-gradient(90deg, #7C3AED, #4F46E5);
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 12px;
+    width: 180px;
+    transition: transform 0.1s ease, background-color 0.3s;
+    
+}
+
+.botao-continuar:hover {
+    background: linear-gradient(90deg, #4F46E5, #7c3aed) ;
+    opacity: 0.9;
+}
+
+.botao-continuar:active {
+    transform: scale(0.95); /* Diminui para 95% do tamanho original, efeito click */
+}
+
+/* CADASTRO - CRIAR SENHA*/
+
+
+/* ACESSO */
+.finalizando {
+    color: #7c7b7b;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    margin: 5px;
+}
+
+/* ESQUECI MINHA SENHA */
+
+/* Animação de aparecer suavemente */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação de tremor (shake) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#aviso-senha-antiga {
+    display: none; /* Começa escondido */
+    color: #dc3545;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #fff5f5; /* Fundo leve para destacar */
+    border-radius: 8px;
+    border-left: 4px solid #dc3545;
+    animation: fadeIn 0.4s ease-out, shake 0.3s ease-in-out;
+}
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Helpyfast</title>
+    <link rel="stylesheet" href="/style/chamadopages/cadastrarchamado.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/IMG/logonavbar.png" alt="Helpy Fast">
+        </div>
+        <nav>
+            <a href="/pages/homepages/home.html" class="nav-home">HOME</a>
+            <a href="/pages/chamadopages/histchamado.html">CHAMADOS</a>
+        </nav>
+    </header>
+
+    <div class="card-container">
+        <div class="title-box">
+            <a href="/pages/homepages/home.html" class="back-arrow">
+                <img src="/svg/iconsetaleft.svg" alt="seta retornando">
+            </a>
+            <span>Novo chamado</span>
+        </div>
+        
+        <div class="box-big">
+            <div class="subtitle">Qual é o seu problema?</div>
+            <div class="container">
+                <p class="label-section">Categoria do Problema</p>
+                <div class="categories" id="categoria-group">
+                    <label class="card">
+                        <input type="radio" name="categoria" value="ti" class="radio-card">
+                        <img src="/svg/informatica-icon.svg" alt="">
+                        <div class="card-text">
+                            <strong>Informática (TI)</strong>
+                            <span>Escritório</span>
+                        </div>
+                    </label>
+                    <label class="card">
+                        <input type="radio" name="categoria" value="producao" class="radio-card">
+                        <img src="/svg/machine-icon.svg" alt="">
+                        <div class="card-text">
+                            <strong>Produção</strong>
+                            <span>Oficinas</span>
+                        </div>
+                    </label>
+                    <label class="card">
+                        <input type="radio" name="categoria" value="adm" class="radio-card">
+                        <img src="/svg/paper-icon.svg" alt="">
+                        <div class="card-text">
+                            <strong>Administrativo</strong>
+                            <span>Salas</span>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- ALINHAMENTO LADO A LADO DO FORMULÁRIO COM O ROBÔ -->
+                <div class="alinhando-card">
+                    <div class="card-esquerdo">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <p class="label-section">O que aconteceu?</p>
+                                <textarea id="descricao" placeholder="Descreva brevemente o problema"></textarea>
+                            </div>
+                        </div>
+                        <div class="input-grupo">
+                            <p class="localizacion">Adicione sua Localização </p>
+                            <select name="area" id="localizacao">
+                                <option value="" disabled selected>Selecione sua Localização</option>
+                                <option value="sala1">Sala 1</option>
+                                <option value="sala2">Sala 2</option>
+                                <option value="sala3">Sala 3</option>
+                                <option value="sala4">Sala 4</option>
+                                <option value="sala5">Sala 5</option>
+                                <option value="oficina_manutencao">Oficina de manutenção</option>
+                                <option value="producao">Produção</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-direito">
+                        <img src="/svg/robo-img.svg" alt="Robô Helpy Fast">
+                    </div>
+                </div>
+
+                <button class="btn-chamado" id="btn-enviar">Enviar chamado</button>
+            </div> <!-- FECHA .container -->
+        </div> <!-- FECHA .box-big -->
+    </div> <!-- FECHA .card-container E ENCERRA O CARD BRANCO -->
+
+    <!-- POP-UP MODAL -->
+    <div id="modalChamado" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button" id="btnFecharModal">&times;</span>
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" width="60" height="60">
+                    <circle cx="12" cy="12" r="10" fill="#fff"/>
+                    <path d="M9 11.4l2 2 4-4" stroke="#8a8a8a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h2>Chamado feito com sucesso!</h2>
+            <button id="btnOutroChamado" class="btn-primary">Realizar outro chamado</button>
+        </div>
+    </div>
+
+    <!-- FOOTER COMPLETAMENTE ISOLADO DO CARD -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>HelpyFast</h4>
+                    <p>Criando uma comunicação digital para facilitar o seu dia a dia dentro do seu ambiente de trabalho.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Serviços</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HelpyFast. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/javascript/cadastrar-chamado.js"></script>
+</body>
+</html>

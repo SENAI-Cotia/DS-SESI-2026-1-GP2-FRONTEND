@@ -1,0 +1,145 @@
+ // 1. INFORMAÇÕES GERAIS
+const inputSenha = document.querySelector('#senha');
+const inputConfirmar = document.querySelector('#senha-igual');
+const iconeOlho = document.querySelector('#iconeOlho');
+const iconeVer = document.querySelector('#iconeVer');
+const btnContinuar = document.querySelector('#btnContinuar');
+const avisoSenhaAntiga = document.querySelector('#aviso-senha-antiga');
+
+let senhaValida = false; // Começa como falso
+
+
+//2. VISUALIZAÇÃO DA SENHA / OLHINHO
+function toggleSenha() {
+    if (inputSenha.type === 'password') {
+    inputSenha.type = 'text'; // mostra a senha
+    iconeOlho.src = "/svg/mostrar-senha.svg"; //troca o ícone
+    } else {
+    inputSenha.type = 'password'; // Esconde a senha
+                    iconeOlho.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
+                }
+             }
+
+           function toggleConfirmar() {
+                if (inputConfirmar.type === 'password') {
+                    inputConfirmar.type = 'text'; // mostra a senha
+                    iconeVer.src = "/svg/mostrar-senha.svg"; //troca o ícone
+                } else {
+                    inputConfirmar.type = 'password'; // Esconde a senha
+                    iconeVer.src = "/svg/ocultar-senha.svg"; // Volta o ícone inicial
+                }
+             }
+
+            // 3. Função para verificar se a nova senha é igual à salva no "banco"
+           function verificarSenhaAntiga() {
+                const senhaNova = inputSenha.value;
+                
+                // Como estamos no front-end simulado, checamos contra a última senha cadastrada globalmente de teste
+                const senhaAntigaSalva = localStorage.getItem('senhaCadastrada');
+                
+                if (senhaAntigaSalva && senhaNova === senhaAntigaSalva && senhaNova !== "") {
+                    exibirAvisoSenhaAntiga(true);
+                    return true;
+                }
+                
+                exibirAvisoSenhaAntiga(false);
+                return false;
+            }
+
+            function exibirAvisoSenhaAntiga(mostrar) {
+                if (mostrar) {
+                    avisoSenhaAntiga.style.display = 'block';
+                    btnContinuar.style.opacity = "0.5";
+                    btnContinuar.style.pointerEvents = "none";
+                } else {
+                    avisoSenhaAntiga.style.display = 'none';
+                    btnContinuar.style.opacity = "1";
+                    btnContinuar.style.pointerEvents = "auto";
+                }
+            }   
+
+        // 4. VALIDANDO EM TEMPO REAL DA CRIAÇÃO DA SENHA
+        inputSenha.addEventListener('input', () => {
+            const valor = inputSenha.value;
+
+            const regras = {
+                caracteres: valor.length >= 8,
+                maiuscula: /[A-Z]/.test(valor),
+                numero: /[0-9]/.test(valor),
+                especial: /[!@#$%&*(),.:{}|<>_-]/.test(valor)
+            };
+            
+            // ATUALIZA O VISUAL DAS REGRAS
+            atualizarVisualRegra('regra-caracteres', regras.caracteres);
+            atualizarVisualRegra('regra-maiuscula', regras.maiuscula);
+            atualizarVisualRegra('regra-numero', regras.numero);
+            atualizarVisualRegra('regra-especial', regras.especial);
+
+            // VÊ SE TODAS AS REGRAS FORAM ATINGIDAS & SE NÃO É A SENHA ANTIGA
+            const todasRegrasAtendidas = Object.values(regras).every(v => v === true);
+            const eSenhaAntiga = verificarSenhaAntiga(); // chama a função do item 3
+
+            senhaValida = todasRegrasAtendidas && !eSenhaAntiga;
+
+            //Sempre que mudar a senha principal, vê se ela é igual a confirmação
+            validarCoincidencia();
+        });
+
+            // *ESTUDAR E PROCURAR ENTENDER ESSE PEDAÇO DEPOIS
+            function atualizarVisualRegra(id, ehValido) {
+                const elemento = document.getElementById(id);
+                if (elemento) { // vê se o elemento existe para não dar erro 
+                    if (ehValido) {
+                        elemento.classList.add('valido');
+                    } else {
+                        elemento.classList.remove('valido');
+                    }
+                }
+            }
+
+        // 5. COR NA BORDA DO CAMPO DE CONFIRMAÇÃO
+        function validarCoincidencia() {
+            if (inputConfirmar.value.length > 0) {
+                if (inputSenha.value === inputConfirmar.value) {
+                    inputConfirmar.style.borderColor = "#28a745"; // verde
+                } else {
+                    inputConfirmar.style.borderColor = "#dc3545"; // Vermelho
+                }
+            } else {
+                 inputConfirmar.style.borderColor = "#7463F6"; // Volta a cor padrão (roxo)
+            }
+        }
+
+        inputConfirmar.addEventListener('input', validarCoincidencia);
+
+        // 6. FINALIZAÇÃO E SALVAMENTO
+        btnContinuar.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const inputEmail = document.querySelector('#email-recuperado');
+
+            // a. Verifica campos vazios
+            if (inputEmail.value === '' || inputSenha.value === '' || inputConfirmar.value === '') {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // b. Verifica se a senha atende aos requisitos de segurança
+            if (!senhaValida) {
+                alert("A senha não atende a todos os requisitos de segurança.");
+                return;
+            }
+
+            // c. Verifica se as duas senhas são iguais
+            if (inputSenha.value !== inputConfirmar.value) {
+                alert("As senhas não coincidem. Verifique os campos.");
+                return;
+            }
+
+            // d. Salva a nova senha no localStorage (Simulação de Banco de Dados)
+            localStorage.setItem('senhaCadastrada', inputSenha.value);
+            alert("Senha alterada com sucesso!");
+
+            // e. Redireciona para a próxima tela (Exemplo: tela de login)
+            window.location.href = "/pages/loginpages/login.html"; 
+         });
