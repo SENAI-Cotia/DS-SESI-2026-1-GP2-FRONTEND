@@ -141,5 +141,5 @@ function toggleSenha() {
             alert("Senha alterada com sucesso!");
 
             // e. Redireciona para a próxima tela (Exemplo: tela de login)
-            window.location.href = "/pages/cadastropages/acesso.html"; 
+            window.location.href = "/pages/loginpages/login.html"; 
          });
