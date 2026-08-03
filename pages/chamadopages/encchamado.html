@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encaminhar Chamados - HelpyFast</title>
+    <link rel="stylesheet" href="/style/chamadopages/encchamado.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="/IMG/logonavbar.png" alt="Helpy Fast">
+        </div>
+        <nav class="nav-links">
+
+            <a href="/pages/homepages/home.html">HOME</a>
+            <a href="/pages/chamadopages/histchamado.html">CHAMADOS</a>
+        </nav>
+    </header>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <main class="main-container">
+        
+        <!-- HEADER DA TELA (BARRA DE TÍTULO) -->
+        <div class="title-bar">
+            <a href="/pages/homepages/home.html" class="back-arrow">
+                <img src="/svg/iconsetaleft.svg" alt="">
+            
+            </a>
+            <h1>Encaminhar chamados</h1>
+        </div>
+
+        <!-- GRID DE CARDS DE CHAMADOS -->
+        <section class="tickets-grid">
+            <!-- Card 1 -->
+            <article class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                </div>
+                <div class="ticket-meta">
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+                <hr class="divider">
+                <p class="ticket-desc">A máquina da oficina não está ligando, e suas engrenagens não rodam.</p>
+                <div class="ticket-footer">
+                    <span class="employee">Funcionário: <strong>Gustavo</strong></span>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+            </article>
+
+            <!-- Card 2 (Selecionado) -->
+            <article class="ticket-card active">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                </div>
+                <div class="ticket-meta">
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+                <hr class="divider">
+                <p class="ticket-desc">A máquina da oficina não está ligando, e suas engrenagens não rodam.</p>
+                <div class="ticket-footer">
+                    <span class="employee">Funcionário: <strong>Gustavo</strong></span>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                </div>
+                <div class="ticket-meta">
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+                <hr class="divider">
+                <p class="ticket-desc">A máquina da oficina não está ligando, e suas engrenagens não rodam.</p>
+                <div class="ticket-footer">
+                    <span class="employee">Funcionário: <strong>Gustavo</strong></span>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                </div>
+                <div class="ticket-meta">
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+                <hr class="divider">
+                <p class="ticket-desc">A máquina da oficina não está ligando, e suas engrenagens não rodam.</p>
+                <div class="ticket-footer">
+                    <span class="employee">Funcionário: <strong>Gustavo</strong></span>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                </div>
+                <div class="ticket-meta">
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+                <hr class="divider">
+                <p class="ticket-desc">A máquina da oficina não está ligando, e suas engrenagens não rodam.</p>
+                <div class="ticket-footer">
+                    <span class="employee">Funcionário: <strong>Gustavo</strong></span>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="ticket-card">
+                <div class="ticket-header">
+                    <h3>Máquina com defeito</h3>
+                </div>
+                <div class="ticket-meta">
+                    <span class="location">Oficina 12</span>
+                    <span class="dept">Produção</span>
+                </div>
+                <hr class="divider">
+                <p class="ticket-desc">A máquina da oficina não está ligando, e suas engrenagens não rodam.</p>
+                <div class="ticket-footer">
+                    <span class="employee">Funcionário: <strong>Gustavo</strong></span>
+                    <span class="date">09 de abril, 08:23hr</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- SEÇÃO DE ENCAMINHAMENTO -->
+        <section class="forward-section">
+            <h2>Enviar chamado para:</h2>
+
+            <div class="tech-options">
+                <!-- Técnico 1 (Selecionado) -->
+                <label class="tech-card selected">
+                    <input type="radio" name="tecnico" value="claudio" checked>
+                    <div class="tech-info">
+                        <span class="tech-name">Cláudio Rocha</span>
+                        <span class="tech-dept">Manutenção</span>
+                    </div>
+                    <span class="radio-dot"></span>
+                </label>
+
+                <!-- Técnico 2 -->
+                <label class="tech-card">
+                    <input type="radio" name="tecnico" value="sinco">
+                    <div class="tech-info">
+                        <span class="tech-name">Sinco Emi</span>
+                        <span class="tech-dept">Manutenção</span>
+                    </div>
+                    <span class="radio-dot"></span>
+                </label>
+            </div>
+
+            <!-- BOTÃO PRINCIPAL -->
+            <button type="button" class="btn-submit" id="btnEncaminhar">Encaminhar</button>
+        </section>
+
+    </main>
+
+    <script src="/javascript/encchamado.js"></script>
+</body>
+</html>

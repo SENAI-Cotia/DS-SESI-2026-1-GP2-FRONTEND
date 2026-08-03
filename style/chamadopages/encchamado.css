@@ -1,0 +1,286 @@
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+    padding-bottom: 60px;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 50px;
+    background-color: #2E1A78;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.notification-icon {
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+
+     border-radius: 8px;
+     
+}
+
+/* BARRA DE TÍTULO ROXA */
+.title-bar {
+    width: 100%;
+    background: linear-gradient(90deg, #2E1A78, #4F46E5);
+    color: white;
+    padding: 16px 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(46, 26, 120, 0.15);
+}
+
+.back-arrow {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.back-arrow:hover {
+    transform: translateX(-3px);
+}
+
+.title-bar h1 {
+    font-size: 22px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    padding-right: 24px; /* Compensa a seta da esquerda para centralizar perfeitamente */
+}
+
+/* GRID DE CARDS */
+.tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* ESTILO DO TICKET CARD */
+.ticket-card {
+    background-color: #ffffff;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Selecionado (Cinza com detalhe roxo na imagem) */
+.ticket-card.active {
+    background-color: #EAEAEA;
+    border-color: #D1D5DB;
+}
+
+.ticket-header h3 {
+    font-size: 16px;
+    color: #1F2937;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.ticket-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #9CA3AF;
+    margin-bottom: 10px;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #E5E7EB;
+    margin-bottom: 12px;
+}
+
+/* Modificação da linha divisória quando o card está ativo */
+.ticket-card.active .divider {
+    border-top: 1.5px solid #2E1A78;
+}
+
+.ticket-desc {
+    font-size: 13px;
+    color: #6B7280;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.ticket-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #9CA3AF;
+}
+
+.ticket-footer strong {
+    color: #4B5563;
+}
+
+/* SEÇÃO DE ENCAMINHAMENTO DE TÉCNICOS */
+.forward-section {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.forward-section h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 20px;
+}
+
+.tech-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* CARD DE SELEÇÃO DO TÉCNICO */
+.tech-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 16px 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s;
+}
+
+.tech-card input[type="radio"] {
+    display: none; /* Oculta a bolinha padrão feia */
+}
+
+.tech-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tech-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1F2937;
+}
+
+.tech-dept {
+    font-size: 11px;
+    color: #9CA3AF;
+}
+
+/* Custom bolinha (Dot) status indicador */
+.radio-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #D1D5DB; /* Cor cinza desmarcado */
+    transition: background-color 0.2s;
+}
+
+/* Estilos dinâmicos aplicados quando o input radio está checado */
+.tech-card:has(input:checked) {
+    border-color: #D1D5DB;
+}
+
+.tech-card:has(input:checked) .radio-dot {
+    background-color: #4ADE80; /* Verde vibrante idêntico à imagem */
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+/* BOTÃO ENCAMINHAR GRADIENTE */
+.btn-submit {
+    display: block;
+    width: 240px;
+    max-width: 100%;
+    margin: 40px auto 0 auto;
+    background: linear-gradient(90deg, #7C3AED, #4F46E5);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    transition: transform 0.1s active, opacity 0.2s;
+    text-align: center;
+}
+
+.btn-submit:hover {
+    opacity: 0.95;
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+/* RESPONSIVIDADE PARA TELAS MENORES */
+@media (max-width: 900px) {
+    .tickets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 20px;
+    }
+    .tickets-grid {
+        grid-template-columns: 1fr;
+    }
+    .title-bar h1 {
+        font-size: 18px;
+    }
+}
